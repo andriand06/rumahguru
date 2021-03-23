@@ -23,8 +23,8 @@
           </ul>
         </li>
       </ul>
-      <button class="btn btn-primary">Masuk</button>
-      <button class="btn btn-secondary">Daftar</button>
+      <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
+      <a href="" class="btn btn-primary" id="auth">Daftar</a>
     </div>
   </div>
 </nav>

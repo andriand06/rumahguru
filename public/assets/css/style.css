@@ -1,19 +1,19 @@
 body{
     background-color:#F8F8FF;
 }
-nav{
-   
-}
+
 .container-fluid {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin: 0 60px 0 60px;
     
 }
 
-button {
+#auth {
     margin-right: 10px;
     width: 80px;
-    height: 45px;
+    height: 40px;
+}
+#login {
+    margin: 10px 0 10px 0;
 }
 .kotak {
     margin: 0 0 0 0;
@@ -25,7 +25,4 @@ button {
 #about {
     text-align: center;
     padding: 0px 60px 0 60px;
-}
-.container1{
- 
 }
