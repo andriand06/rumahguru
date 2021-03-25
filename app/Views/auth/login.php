@@ -26,7 +26,8 @@
                     </div>
                     <div class="form-group">
                         
-                        <input type="password" name="password" id="login" class="form-control <?//= ($val->hasError('password')) ? 'is-invalid' : ''; ?>" placeholder="Password">
+                        <input type="password" name="password" id="password" class="form-control <?//= ($val->hasError('password')) ? 'is-invalid' : ''; ?>" placeholder="Password">
+                        <a id="togglepassword"><i class="fas fa-eye">Toggle</i></a>
                         <div class="invalid-feedback" style="color: red;">
                             <?//= $val->getError('password')   ; ?>
                         </div>
@@ -37,7 +38,7 @@
 
                 <div class="row">
                     <div class="col-md-8">
-                        <p><label for="">New Around Here?</label><a href="<?= base_url('login/registrasi');?>">Sign Up</a></p>
+                        <p><label for="">New Around Here?</label><a href="<?= base_url('/auth/registrasi');?>">Sign Up</a></p>
                         <p><label for="">Forgot your password?</label><a href="<?= base_url('login/registrasi');?>">Click here</a></p>
                     </div>
                 </div>

@@ -1,18 +1,25 @@
 body{
     background-color:#F8F8FF;
 }
-
+nav{
+    width: 100%;
+}
 .container-fluid {
     margin: 0 60px 0 60px;
     
 }
-
+.container {
+    width: 100%;
+}
+.row {
+    margin: 0 0 30px 0;
+} 
 #auth {
     margin-right: 10px;
     width: 80px;
     height: 40px;
 }
-#login {
+input {
     margin: 10px 0 10px 0;
 }
 .kotak {

@@ -24,7 +24,7 @@
         </li>
       </ul>
       <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
-      <a href="" class="btn btn-primary" id="auth">Daftar</a>
+      <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>
     </div>
   </div>
 </nav>

@@ -10,6 +10,10 @@ class Auth extends BaseController
     {
         echo view('auth/login');
     }
+    public function registrasi()
+    {
+        echo view('auth/registrasi');
+    }
 }
 
 ?>
