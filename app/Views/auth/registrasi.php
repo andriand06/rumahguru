@@ -18,32 +18,40 @@
                 <?= csrf_field()   ; ?>
                     <div class="form-group">
                         
-                        <input type="text" name="username"  class="form-control" placeholder="Username" autocomplete="off">
+                        <input type="text" name="namalengkap"  class="form-control <?= ($val->hasError('namalengkap')) ? 'is-invalid' : '';?>" placeholder="Nama Lengkap" autocomplete="off">
                         <div class="invalid-feedback" style="color: red;">
-                            <?//= $val->getError('username')   ; ?>
+                            <?= $val->getError('namalengkap')   ; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         
-                        <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off">
+                        <input type="text" name="username"  class="form-control <?= ($val->hasError('username')) ? 'is-invalid' : '' ; ?>" placeholder="Username" autocomplete="off">
                         <div class="invalid-feedback" style="color: red;">
-                            <?//= $val->getError('password')   ; ?>
+                            <?= $val->getError('username')   ; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         
-                        <input type="password" name="ulangipassword" class="form-control" placeholder="UlangiPassword" autocomplete="off">
+                        <input type="email" name="email" class="form-control <?= ($val->hasError('email')) ? 'is-invalid' : '' ;?> "placeholder="Email" autocomplete="off">
                         <div class="invalid-feedback" style="color: red;">
-                            <?//= $val->getError('ulangipassword')   ; ?>
+                            <?= $val->getError('email')   ; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         
-                        <input type="email" name="email" class="form-control" placeholder="Email" autocomplete="off">
+                        <input type="password" name="password" class="form-control <?= ($val->hasError('password')) ? 'is-invalid' : '' ;?>" placeholder="Password" autocomplete="off">
                         <div class="invalid-feedback" style="color: red;">
-                            <?//= $val->getError('email')   ; ?>
+                            <?= $val->getError('password')   ; ?>
                         </div>
                     </div>
+                    <div class="form-group">
+                        
+                        <input type="password" name="konfirmasipassword" class="form-control <?= ($val->hasError('konfirmasipassword')) ? 'is-invalid' : '' ;?>" placeholder="Konfirmasi Password" autocomplete="off">
+                        <div class="invalid-feedback" style="color: red;">
+                            <?= $val->getError('konfirmasipassword')   ; ?>
+                        </div>
+                    </div>
+                    
                     
                     <input type="submit" value="Sign up" class="btn btn-primary">
                 </form>
