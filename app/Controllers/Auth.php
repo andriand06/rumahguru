@@ -16,7 +16,58 @@ class Auth extends BaseController
     }
     public function login()
     {
-        echo view('auth/login');
+        $session = \Config\Services::session();
+
+        $val = $this->validate([
+            'username' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'required'=> '{field} harus diisi',
+                    'min_length' => '{field} harus minimal terdiri dari 8 huruf',
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|min_length[8]|regex_match[/^[A-Za-z0-9]+$/]',
+                'errors' => [
+                    'required' => '{field} harus diisi',
+                    'min_length'=> '{field} minimal 8 karakter',
+                    'regex_match' => '{field} harus terdiri dari satu huruf Kapital dan satu angka',
+                ],
+            ],
+        ]); 
+        if($val == false){
+            $data = [
+                'username' => $this->request->getPost('username'),
+                'password' => $this->request->getPost('password'),
+                'val' =>  \Config\Services::validation(),
+            ];
+            return view('/auth/login',$data);
+
+        } else {
+            $username = $this->request->getPost('username');
+            $password = $this->request->getPost('password');
+            $user = $this->user_model->getWhere($username);
+            if($user)
+            {
+                if(password_verify($password,$user['password'])) {
+                    $data = [
+                        'username' => $user['username'],
+                        'datecreated' => $user['datecreated'],
+                        
+                    ];
+                    $session->set($data);
+                    return view('/onboarding/interest',$data);
+                }
+                else {
+                    session()->setFlashdata('error','Password salah,silahkan coba lagi');
+                    return view('/auth/login');
+                }
+
+            }else {
+                session()->setFlashdata('error','Username tidak ada!');
+                    return view('/auth/login');
+            }
+        }
     }
     public function registrasi()
     {
@@ -61,19 +112,20 @@ class Auth extends BaseController
 				]
 			],
             
-        ]);
+        ]); 
+      
         if($val == false) {
-
+        
             $data = [
                 'namalengkap' => $this->request->getPost('namalengkap'),
                 'username' => $this->request->getPost('username'),
                 'email' => $this->request->getPost('email'),
                 'password' => $this->request->getPost('password'),
                 'konfirmasipassword' => $this->request->getPost('konfirmasipassword'),
-                'val' => \Config\Services::validation(),
+                'val' => \Config\Services::validation()
             ];
         
-        return view('auth/registrasi',$data);
+        return view('/auth/registrasi',$data);
         } else {
             $data = [
                 'id' => '',
@@ -86,7 +138,7 @@ class Auth extends BaseController
             ];
             $this->user_model->insertUser($data);
             session()->setFlashdata('pesan','Anda berhasil registrasi!');
-            return redirect()->to('/auth/login');
+            return view ('/auth/login');
         }
     }
 }

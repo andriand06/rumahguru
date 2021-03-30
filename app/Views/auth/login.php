@@ -16,20 +16,21 @@
                 <?= session()->getFlashdata('error')   ; ?>
             </div>
             <?php endif;?>
-                <form action="/login/index" method="post">
+                <form action="/auth/login" method="post">
                     <div class="form-group">
                         
-                        <input type="text" name="username" id="login"  class="form-control <?//= ($val->hasError('username')) ? 'is-invalid' : ''; ?>" placeholder="Username" value="">
+                        <input type="text" name="username" id="login"  class="form-control <?= ($val->hasError('username')) ? 'is-invalid' : ''; ?>" placeholder="Username" value="<?= ($username ? $username : '')?>">
                         <div class="invalid-feedback" style="color: red;">
-                            <?//= $val->getError('username')   ; ?>
+                            <?= $val->getError('username')   ; ?>
                         </div>
                     </div>
                     <div class="form-group">
                         
-                        <input type="password" name="password" id="password" class="form-control <?//= ($val->hasError('password')) ? 'is-invalid' : ''; ?>" placeholder="Password">
-                        <a id="togglepassword"><i class="fas fa-eye">Toggle</i></a>
+                        <input type="password" name="password" id="password" class="form-control <?= ($val->hasError('password')) ? 'is-invalid' : ''; ?>" placeholder="Password" value="<?= ($password ? $password : '') ;?>">
+                        <input type="checkbox" id="togglepassword">
+                        <a>Lihat Password</a>
                         <div class="invalid-feedback" style="color: red;">
-                            <?//= $val->getError('password')   ; ?>
+                            <?= $val->getError('password')   ; ?>
                         </div>
                     </div>
                     

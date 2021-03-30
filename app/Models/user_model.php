@@ -14,4 +14,8 @@ class user_model extends Model
     {
         return $this->db->table('user')->insert($data);
     }
+    public function getWhere($username)
+    {
+        return $this->db->table('user')->getWhere(['username'=>$username])->getRowArray();
+    }
 }
