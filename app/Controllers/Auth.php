@@ -17,33 +17,35 @@ class Auth extends BaseController
     public function login()
     {
         $session = \Config\Services::session();
-
-        $val = $this->validate([
+        
+       if(!$this->validate([
             'username' => [
                 'rules' => 'required|min_length[8]',
                 'errors' => [
                     'required'=> '{field} harus diisi',
                     'min_length' => '{field} harus minimal terdiri dari 8 huruf',
-                ]
+                ],
             ],
             'password' => [
                 'rules' => 'required|min_length[8]|regex_match[/^[A-Za-z0-9]+$/]',
                 'errors' => [
                     'required' => '{field} harus diisi',
                     'min_length'=> '{field} minimal 8 karakter',
-                    'regex_match' => '{field} harus terdiri dari satu huruf Kapital dan satu angka',
+                    
                 ],
             ],
-        ]); 
-        if($val == false){
+        ]) )
+        {
             $data = [
                 'username' => $this->request->getPost('username'),
                 'password' => $this->request->getPost('password'),
-                'val' =>  \Config\Services::validation(),
+                'val' =>  \Config\Services::validation()
             ];
-            return view('/auth/login',$data);
+           
+        return view('/auth/login.php',$data);
 
-        } else {
+        } else 
+        {
             $username = $this->request->getPost('username');
             $password = $this->request->getPost('password');
             $user = $this->user_model->getWhere($username);
@@ -53,19 +55,30 @@ class Auth extends BaseController
                     $data = [
                         'username' => $user['username'],
                         'datecreated' => $user['datecreated'],
+                        'val' =>  \Config\Services::validation()
                         
                     ];
                     $session->set($data);
                     return view('/onboarding/interest',$data);
                 }
                 else {
+                    $data = [
+                        'username' => $user['username'],
+                        'password' => '',
+                        'val' =>  \Config\Services::validation()
+                    ];
                     session()->setFlashdata('error','Password salah,silahkan coba lagi');
-                    return view('/auth/login');
+                    return view('/auth/login',$data);
                 }
 
             }else {
+                $data = [
+                    'username' => '',
+                    'password' => '',
+                    'val' =>  \Config\Services::validation()
+                ];
                 session()->setFlashdata('error','Username tidak ada!');
-                    return view('/auth/login');
+                    return view('/auth/login',$data);
             }
         }
     }
@@ -140,6 +153,17 @@ class Auth extends BaseController
             session()->setFlashdata('pesan','Anda berhasil registrasi!');
             return view ('/auth/login');
         }
+    }
+    public function logout()
+    {
+        // unset($_SESSION['username']);
+        //unset($_SESSION['role_id']);
+        $session = \config\Services::session();
+        $session->remove('username');
+        session()->removeTempdata('username');
+
+        session()->setFlashdata('pesan', 'Anda Berhasil Logout!');
+        return redirect()->to(base_url('/auth/login'));
     }
 }
 

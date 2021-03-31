@@ -17,9 +17,10 @@
             </div>
             <?php endif;?>
                 <form action="/auth/login" method="post">
+                <?= csrf_field()   ; ?>
                     <div class="form-group">
                         
-                        <input type="text" name="username" id="login"  class="form-control <?= ($val->hasError('username')) ? 'is-invalid' : ''; ?>" placeholder="Username" value="<?= ($username ? $username : '')?>">
+                        <input type="text" name="username" id="login"  class="form-control <?= ($val->hasError('username')) ? 'is-invalid' : ''; ?>" placeholder="Username" value="<?= ($username) ? $username : '';?>"q>
                         <div class="invalid-feedback" style="color: red;">
                             <?= $val->getError('username')   ; ?>
                         </div>

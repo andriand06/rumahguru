@@ -23,8 +23,42 @@
           </ul>
         </li>
       </ul>
-      <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
-      <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>
+      <?php
+        $profil = ' 
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <img src="<?= base_url('/assets/img/pp.jpg') ; ?>" alt="" class="nav-link dropdown-toggle roundedimg" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">K</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+        </ul>
+        </li>
+      
+      </ul>';
+      ?>
+      <?= ($username  ? 
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <img src="<?= base_url('/assets/img/pp.jpg') ; ?>" alt="" class="nav-link dropdown-toggle roundedimg" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">K</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+          </ul>
+          </li>
+        
+        </ul>' : '
+          <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
+          <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>' );?>
+    
+
+
+     
+      
+      
     </div>
   </div>
 </nav>

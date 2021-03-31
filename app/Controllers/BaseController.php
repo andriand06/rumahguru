@@ -54,4 +54,14 @@ class BaseController extends Controller
 		// E.g.: $this->session = \Config\Services::session();
 		
 	}
+
+	public function cek_status()
+	{
+		$session = \Config\Services::session();
+		if($session->has('username') == null)
+		{
+			session()->setFlashdata('error','Silahkan login terlebih dahulu untuk mengakses halaman ini');
+			return redirect()->to('/auth/login');
+		}
+	}
 }
