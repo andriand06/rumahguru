@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/Home/">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,22 +23,8 @@
           </ul>
         </li>
       </ul>
-      <?php
-        $profil = ' 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <img src="<?= base_url('/assets/img/pp.jpg') ; ?>" alt="" class="nav-link dropdown-toggle roundedimg" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="#">K</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
-        </ul>
-        </li>
-      
-      </ul>';
-      ?>
-      <?= ($username  ? 
+   
+      <?php if ($username) : ?>   
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <img src="<?= base_url('/assets/img/pp.jpg') ; ?>" alt="" class="nav-link dropdown-toggle roundedimg" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,11 +35,13 @@
             <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
           </ul>
           </li>
+        <?php endif ;?>
         
-        </ul>' : '
+        </ul>
+        <?php if(!$username) : ?>
           <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
           <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>' );?>
-    
+          <?php endif ; ?>
 
 
      
