@@ -36,7 +36,7 @@ body{
     }
     .interest 
     {
-        width: 350px;
+        width: 450px;
     }
 }
 nav{
@@ -121,4 +121,23 @@ input {
     max-width: 100%;
     height: auto;
 }
+.kartu
+{
+    max-width: 100%;
+    
+    margin: 40px 40px 40px;
+    padding: 40px 20px 30px;
+    border-radius: .3125rem;
+    
+}
+.kartu.biru
+{
+    background-color: #C9FFE5;
+}
+.kartu.putih
+{
+    margin: 30px 40px 40px!important;
+    background-color: white;
+}
+
 
