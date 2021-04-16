@@ -175,24 +175,27 @@ class Auth extends BaseController
         $emails = $this->session->get('email');
         $token = $this->session->get('token');
         $user = $this->user_model->getEmail($emails);
-
+        
         if($user) 
         {
             $user_token = $this->user_model->getToken($token);
             if($user_token) 
             {
                $this->user_model->aktivasi($emails);
-                
+               
+                $this->session->remove('is_active');
+                $data = ['is_active' => 1];
+                session()->set($data);
                 session()->setFlashdata('pesan', 'Aktivasi '.$emails.' Berhasil,Silahkan Login.');
-                redirect()->to('/dashboard/index');
+                return redirect()->to('/dashboard/index');
             }
             else {
                 session()->setFlashdata('pesan', 'Aktivasi Gagal,Token Salah atau tidak ada!');
-             redirect()->to('/auth/login');
+             return redirect()->to('/auth/login');
             }
         }else {
              session()->setFlashdata('pesan', 'Aktivasi Gagal,Email Salah!');
-             redirect()->to('/auth/login');
+             return redirect()->to('/auth/login');
         }
     }
     public function logout()

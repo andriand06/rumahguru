@@ -12,7 +12,7 @@
             </div>
        <?php endif  ;?>
         </div>
-        <?php if($isactive === '0') : ?>
+        <?php if($isactive === 0) : ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="kartu biru">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <?php endif; ?>
-        <?php if(!$isactive == 0) :?>
+        <?php if($isactive === 1) :?>
         <div class="container"></div>
         <?php endif;?>
         <div class="row">
