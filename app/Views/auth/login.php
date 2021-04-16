@@ -16,7 +16,7 @@
                 <?= session()->getFlashdata('error')   ; ?>
             </div>
             <?php endif;?>
-                <form action="/auth/login" method="post">
+                <form action="" method="post">
                 <?= csrf_field()   ; ?>
                     <div class="form-group">
                         

@@ -9,10 +9,11 @@ use CodeIgniter\I18n\Time;
 class Auth extends BaseController
 {
     protected $user_model;
-   
+   protected $session;
     public function __construct()
     {
         $this->user_model = new user_model();
+        $this->session = \Config\Services::session();
     }
     public function login()
     {
@@ -55,11 +56,12 @@ class Auth extends BaseController
                     $data = [
                         'username' => $user['username'],
                         'datecreated' => $user['datecreated'],
-                        'val' =>  \Config\Services::validation()
+                        'val' =>  \Config\Services::validation(),
+                        'email' => $user['email'],
                         
                     ];
                     $session->set($data);
-                    return view('/onboarding/interest',$data);
+                    return redirect()->to('/onboarding/interest')->withInput();
                 }
                 else {
                     $data = [
@@ -135,23 +137,62 @@ class Auth extends BaseController
                 'email' => $this->request->getPost('email'),
                 'password' => $this->request->getPost('password'),
                 'konfirmasipassword' => $this->request->getPost('konfirmasipassword'),
+                
                 'val' => \Config\Services::validation()
             ];
         
         return view('/auth/registrasi',$data);
         } else {
+            $email = htmlspecialchars($this->request->getPost('email'));
             $data = [
                 'id' => '',
                 'namalengkap' => htmlspecialchars($this->request->getPost('namalengkap')),
                 'username' => htmlspecialchars($this->request->getPost('username')),
-                'email' => htmlspecialchars($this->request->getPost('email')),
+                'email' => $email,
                 'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                 'konfirmasipassword' => password_hash($this->request->getPost('konfirmasipassword'),PASSWORD_DEFAULT),
+                'is_active' => 0,
                 'datecreated' => new Time('now'),
+                
             ];
+            $token = base64_encode(random_bytes(32));
+            $user_token = [
+                'email' => $email,
+                'token' => $token,
+                'datecreated' => time()
+            ];
+            
+            session()->set($data);
+            session()->set($user_token);
             $this->user_model->insertUser($data);
+            $this->user_model->insertuserToken($user_token);
             session()->setFlashdata('pesan','Anda berhasil registrasi!');
-            return view ('/auth/login');
+            return redirect()->to('/auth/login');
+        }
+    }
+    public function verify()
+    {
+        $emails = $this->session->get('email');
+        $token = $this->session->get('token');
+        $user = $this->user_model->getEmail($emails);
+
+        if($user) 
+        {
+            $user_token = $this->user_model->getToken($token);
+            if($user_token) 
+            {
+               $this->user_model->aktivasi($emails);
+                
+                session()->setFlashdata('pesan', 'Aktivasi '.$emails.' Berhasil,Silahkan Login.');
+                redirect()->to('/dashboard/index');
+            }
+            else {
+                session()->setFlashdata('pesan', 'Aktivasi Gagal,Token Salah atau tidak ada!');
+             redirect()->to('/auth/login');
+            }
+        }else {
+             session()->setFlashdata('pesan', 'Aktivasi Gagal,Email Salah!');
+             redirect()->to('/auth/login');
         }
     }
     public function logout()

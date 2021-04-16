@@ -14,8 +14,26 @@ class user_model extends Model
     {
         return $this->db->table('user')->insert($data);
     }
+    public function insertuserToken($data)
+    {
+        return $this->db->table('user_token')->insert($data);
+    }
     public function getWhere($username)
     {
         return $this->db->table('user')->getWhere(['username'=>$username])->getRowArray();
     }
+    public function getEmail($email)
+    {
+        return $this->db->table('user')->getWhere(['email'=>$email])->getRowArray();
+    }
+    public function getToken($token)
+    {
+        return $this->db->table('user_token')->getWhere(['token'=>$token])->getRowArray();
+    }
+    public function aktivasi($emails)
+    {
+        $this->db->table('user')->set('is_active',1)->where('email',$emails)->update();
+        $this->db->table('user_token')->delete('token');
+    }
+    
 }

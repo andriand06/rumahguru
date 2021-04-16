@@ -40,7 +40,7 @@
         </ul>
         <?php if(!$username) : ?>
           <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
-          <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>' );?>
+          <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>
           <?php endif ; ?>
         <?php if(isset($check)) : ?>
           <a href="/dashboard/index" class="btn btn-primary">Dashboard</a>

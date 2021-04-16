@@ -5,16 +5,18 @@
 
 
     <div class="content-wrapper">
-
+        <div class="container">
        <?php if(session()->getFlashdata('pesan')) : ?>
-       <div class="alert-success">
+            <div class="alert-success">
         <?= session()->getFlashdata('pesan')   ; ?>
-       </div>
+            </div>
        <?php endif  ;?>
-    
+        </div>
+        <?php if($isactive === '0') : ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="kartu biru">
+                
                     <h2>Selamat Bergabung <?= $username;?></h2>
                     <div class="mt-3">
                             <p>
@@ -22,13 +24,17 @@
                                 <br class="d-lg-block d-md-block d-none">
                                 Cek email dan klik verifikasi.
                             </p>
-                            <form method="POST" action="" accept-charset="UTF-8"><input name="_token" type="hidden">
+                            <form method="POST" action="/dashboard/sendEmail" accept-charset="UTF-8"><input name="_token" type="hidden">
                             <button type="submit" class="btn btn-info">Kirim Ulang Email Verifikasi</button>
                             </form>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <?php endif; ?>
+        <?php if(!$isactive == 0) :?>
+        <div class="container"></div>
+        <?php endif;?>
         <div class="row">
             <div class="col-md-12">
                 <div class="kartu putih">
