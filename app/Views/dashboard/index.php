@@ -77,7 +77,7 @@
                                 </table>
                                 <p class="mb-0">
                                     <a href="" class="btn mt-3
-                                        btn-primary">Daftar Trial</a>
+btn-info button">Daftar Trial</a>
                                 </p>
                             </div>
                         </div>
@@ -96,14 +96,12 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td>	Daftar dan mulailah belajar pada kelas premium.
-
-</td>
+                                        <td>	Daftar dan mulailah belajar pada kelas premium.</td>
                                     </tr>
                                 </table>
                                 <p class="mb-0">
                                     <a href="" class="btn mt-3
-                                        btn-primary">Daftar Kelas Premium</a>
+                                        btn-info button">Daftar Kelas Premium</a>
                                 </p>
                             </div>
                         </div>
@@ -122,22 +120,69 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td>	Submit tugas Anda dan dapatkan code review dari expert.
-
-</td>
+                                        <td>	Submit tugas Anda dan dapatkan code review dari expert.</td>
                                     </tr>
                                 </table>
                                 <p class="mb-0">
                                     <a href="" class="btn mt-3
-                                        btn-primary">Submit Tugas</a>
+                                        btn-info button">Submit Tugas</a>
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-               </div>
-           </div>
+            </div>
        </div>
+       <div class="kartu putih">
+            <div class="row">   
+                <h3>Rekomendasi Academy</h3>
+                <p>Berikut adalah rekomendasi kelas sesuai dengan minat belajar Anda. Pelajari sekarang juga.</p>
+                <div class="col-md-3 mt-3">
+                    
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
+                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-3">
+                    
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
+                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-md-3 mt-3">
+                    
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
+                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-md-3 mt-3">
+                    
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
+                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                        </div>
+                             
+                    </div>
+                    <a href="/academy/list" class="btn btn-info mt-3 button">Lihat Semua Kelas</a>   
+                </div>
+                
+            </div>
+        </div>  
+           
     </div>
 
 

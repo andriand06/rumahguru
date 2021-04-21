@@ -20,7 +20,7 @@ class Onboarding extends BaseController{
         
         if($this->cek_status())
         {
-            dd($this->cek_status());
+            $this->cek_status();
             return redirect()->to('/auth/login');
         }
         if(!$this->validate([

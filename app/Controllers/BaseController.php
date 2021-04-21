@@ -35,7 +35,15 @@ class BaseController extends Controller
 	 * @var HTTP\IncomingRequest
 	*/
 	protected $request;
-	
+	public function cek_status()
+	{
+		$session = \Config\Services::session();
+		if($session->has('username') == null)
+		{
+			session()->setFlashdata('error','Silahkan login terlebih dahulu untuk mengakses halaman ini');
+			return redirect()->to('/auth/login');
+		}
+	}
 	/**
 	 * Constructor.
 	 *
@@ -55,13 +63,5 @@ class BaseController extends Controller
 		
 	}
 
-	public function cek_status()
-	{
-		$session = \Config\Services::session();
-		if($session->has('username') == null)
-		{
-			session()->setFlashdata('error','Silahkan login terlebih dahulu untuk mengakses halaman ini');
-			return redirect()->to('/auth/login');
-		}
-	}
+	
 }

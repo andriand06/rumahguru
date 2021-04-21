@@ -89,7 +89,7 @@
 
                     <div class="form-group mb-4">
                         <button type="submit" class="btn btn-primary">Simpan</button>
-                        <a href="" class="btn btn-secondary">Lewati</a>
+                        <a href="/dashboard/" class="btn btn-secondary">Lewati</a>
                     </div>
             </form>
         </div>

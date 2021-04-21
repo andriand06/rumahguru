@@ -12,9 +12,15 @@ class dashboard extends BaseController
     {
         $this->session = \Config\Services::session();
         $this->email = \Config\Services::email();
+        $this->cek_status();
     }
     public function index()
     {
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
         $username = $this->session->get('username');
         $data = [
             'username' => $username,
@@ -28,6 +34,11 @@ class dashboard extends BaseController
 
     public function sendEmail()
     {
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
         $username = $this->session->get('username');
        $emails = $this->session->get('email');
        $token = $this->session->get('token');

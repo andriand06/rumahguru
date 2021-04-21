@@ -23,6 +23,7 @@
           </ul>
         </li>
       </ul>
+      
    
       <?php if ($username) : ?>   
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,6 +36,7 @@
             <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
           </ul>
           </li>
+          <a href="/dashboard/index" class="btn btn-info button">Dashboard</a>
         <?php endif ;?>
         
         </ul>
@@ -42,10 +44,7 @@
           <a href="/auth/login" class="btn btn-secondary" id="auth">Masuk</a>
           <a href="/auth/registrasi" class="btn btn-primary" id="auth">Daftar</a>
           <?php endif ; ?>
-        <?php if(isset($check)) : ?>
-          <a href="/dashboard/index" class="btn btn-primary">Dashboard</a>
        
-        <?php endif; ?>
         
        
 
@@ -58,3 +57,7 @@
     </div>
   </div>
 </nav>
+
+<footer>
+  <p>&copy;Copyright Rumah Guru 2021</p>
+</footer>
