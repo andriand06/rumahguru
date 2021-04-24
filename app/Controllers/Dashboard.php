@@ -22,12 +22,15 @@ class dashboard extends BaseController
             return redirect()->to('/auth/login');
         }
         $username = $this->session->get('username');
+        $trial = $this->session->get('trial');
+        //dd($trial);
         $data = [
             'username' => $username,
+            'trial' => $trial,
             'isactive' => $this->session->get('is_active'),
         ];
-        
-        
+        //$isactive = $this->session->get('is_active');
+        //dd($isactive);
         return view('dashboard/index',$data);
     }
     

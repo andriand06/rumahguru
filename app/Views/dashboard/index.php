@@ -5,7 +5,7 @@
 
 
     <div class="content-wrapper">
-        <div class="container">
+        <div class="container mt-3">
        <?php if(session()->getFlashdata('pesan')) : ?>
             <div class="alert-success">
         <?= session()->getFlashdata('pesan')   ; ?>
@@ -58,6 +58,7 @@
                <div class="kartu putih">
                     <h5>Milestone Belajar Anda</h5>
                     <div class="mt-3"></div>
+                    <?php if($trial == null or !$trial) : ?>
                     <div class="card card-outline-success">
                         <div class="card-body p-5">
                             <div class="d-flex" style="justify-content: space-between;">
@@ -76,12 +77,37 @@
                                     </tr>
                                 </table>
                                 <p class="mb-0">
-                                    <a href="" class="btn mt-3
-btn-info button">Daftar Trial</a>
+                                <a href="/subscriptions/trial" class="btn btn-info button" onclick="return confirm('Apakah Anda yakin ingin mendaftar trial gratis selama 15 hari ? Pendaftaran trial hanya dapat dilakukan sekali, selanjutnya Anda tidak akan dapat mendaftar trial kembali.')">Daftar Trial</a>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    <?php endif;?>
+                    <?php if($trial === 1): ?>
+                    <div class="card trial">
+                        <div class="card-body p-5">
+                            <div class="d-flex" style="justify-content: space-between;">
+                                <table>
+                                    <tr>
+                                        <td><h4 class="mr-2">1.</h4></td>
+                                        <td>
+                                            <h4>Daftar Trial
+                                                                                                <i class="lock-icon ml-2"></i>
+                                                                                        </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Coba gratis 15 hari dan akses semua kelas.</td>
+                                    </tr>
+                                </table>
+                                <p class="mb-0">
+                                <a href="/subscriptions/trial" class="btn btn-info button disabled" onclick="return confirm('Apakah Anda yakin ingin mendaftar trial gratis selama 15 hari ? Pendaftaran trial hanya dapat dilakukan sekali, selanjutnya Anda tidak akan dapat mendaftar trial kembali.')" >Daftar Trial</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif;?>
                     <div class="card card-outline-success mt-5">
                         <div class="card-body p-5">
                             <div class="d-flex" style="justify-content: space-between;">
@@ -99,9 +125,16 @@ btn-info button">Daftar Trial</a>
                                         <td>	Daftar dan mulailah belajar pada kelas premium.</td>
                                     </tr>
                                 </table>
+                                
                                 <p class="mb-0">
+                                <?php if($isactive === 0): ?>
                                     <a href="" class="btn mt-3
+                                        btn-info button disabled" >Daftar Kelas Premium</a>
+                                <?php endif;?>
+                                <?php if($isactive === 1): ?>
+                                    <a href="/academy/list" class="btn mt-3
                                         btn-info button">Daftar Kelas Premium</a>
+                                <?php endif;?>
                                 </p>
                             </div>
                         </div>
@@ -125,7 +158,7 @@ btn-info button">Daftar Trial</a>
                                 </table>
                                 <p class="mb-0">
                                     <a href="" class="btn mt-3
-                                        btn-info button">Submit Tugas</a>
+                                        btn-info button disabled">Submit Tugas</a>
                                 </p>
                             </div>
                         </div>

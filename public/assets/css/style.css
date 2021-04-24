@@ -193,6 +193,14 @@ footer
     color: black;
     text-align: center;
 }
+.disabled {
+    pointer-events: none;
+    color: #ccc;
+}
+.trial
+{
+    background-color:  #C9FFE5;
+}
 
 
 

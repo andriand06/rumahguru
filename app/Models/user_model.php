@@ -22,6 +22,11 @@ class user_model extends Model
     {
         return $this->db->table('user')->getWhere(['username'=>$username])->getRowArray();
     }
+    public function getData($id)
+    {
+        return $this->where(['id' => $id])->first();
+        
+    }
     public function getEmail($email)
     {
         return $this->db->table('user')->getWhere(['email'=>$email])->getRowArray();
@@ -35,5 +40,14 @@ class user_model extends Model
         $this->db->table('user')->set('is_active',1)->where('email',$emails)->update();
         $this->db->table('user_token')->delete('token');
     }
+    public function insertuserTrial($data)
+    {
+        return $this->db->table('user_trial')->insert($data);
+    }
+    public function insertuserPurchase($data)
+    {
+        return $this->db->table('user_purchase')->insert($data);
+    }
+
     
 }

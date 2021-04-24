@@ -11,23 +11,25 @@
         <div class="col-md-3">
             Total Point Pembelian
         </div>
-        <div class="col-md-3">
-            4500 Points
+       
+        <div class="col-md-3" id="Points">
+            <?= $isi['point']   ; ?> Points
         </div>
         <div class="col-md-3">
-            (Rp 4,500,000)
+            (Rp <?= $isi['price']   ; ?>)
         </div>
         <div class="col-md-3"></div>
+       
     </div>
     <div class="row mt-5">
         <div class="col-md-3">
             Jumlah Tagihan
         </div>
         <div class="col-md-3">
-            4500 Points
+        <?= $isi['point']   ; ?> Points
         </div>
         <div class="col-md-3">
-            (Rp 4,500,000)
+        (Rp <?= $isi['price']   ; ?>)
         </div>
         <div class="col-md-3"></div>
     </div>
@@ -35,7 +37,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-9">
             <h6>Untuk Pembelian paket</h6>
-            <p>Paket Langganan: 90 Hari, (seharga Rp. 4,500,000)</p>
+            <p>Paket Langganan: <?= $isi['days']   ; ?> Hari,seharga (Rp <?= $isi['price']   ; ?>) <label id="Days"></label></p>
             <a href="" class="btn btn-info button">Beli Paket Langganan</a>
         </div>
     </div>

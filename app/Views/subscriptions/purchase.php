@@ -17,12 +17,19 @@
     </div>
     <div class="kartu biru">
         <h5>Paket Langganan Belajar</h5>
-        <select name="" id="">
-            <option value="">Langganan 30 Hari <b>Rp 300,000</b></option>
-            <option value="">Langganan 90 Hari <b>Rp 855,000</b></option>
-            <option value="">Langganan 180 Hari <b>Rp 1,620,000</b></option>
-            <option value="">Langganan 365 Hari <b>Rp 2,780,000</b></option>
+        <form action="/subscriptions/checkout/<?= $langganan;?>" method="post">
+        <?= csrf_field(); ?>
+        <select name="langganan" id="langganan">
+            <option value="1" data-price="300000" data-point ="300" data-days="30 hari">Langganan 30 Hari <b>Rp 300,000</b></option>
+            <option value="2" data-price="855000" data-point ="850" data-days="90 hari">Langganan 90 Hari <b>Rp 855,000</b></option>
+            <option value="3" data-price="1620000" data-point="1620"data-days="180 hari">Langganan 180 Hari <b>Rp 1,620,000</b></option>
+            <option value="4" data-price="2780000" data-point ="2780" data-days="365 hari">Langganan 365 Hari <b>Rp 2,780,000</b></option>
         </select>
+        <label for="" id="price"></label> 
+        <label for="" id="point"></label> 
+        <label for="" id="days"></label> 
+
+      
         <ul class="mt-3">
             <li>Akses penuh ke seluruh kelas di Rumah Guru.</li>
             <li>Bimbingan dan bedah soal dari para Pengajar terhadap tugas submission Anda.</li>
@@ -30,8 +37,8 @@
             <li>Konsultasi sepuasnya di forum diskusi.</li>
             <li>Bayar putus. Tak ada kewajiban untuk melanjutkan langganan. Tak ada tagihan rahasia.</li>
         </ul>
-        <center><a href="/subscriptions/checkout" class="btn btn-info button">Daftar Sekarang</a></center>
-
+        <center><input type="submit" class="btn btn-info button" id="beli" value="Daftar Sekarang"></center>
+        </form>
     </div>
     
         <div class="kartu biru mt-5">

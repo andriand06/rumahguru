@@ -28,7 +28,23 @@
     }
     toggleNode.addEventListener('click',toggle)
     
+    var beli = document.getElementById("beli");
+   
+  
+    function data() {
+        var langganan = document.getElementById("langganan");
+        
+        var langgananPrice = langganan.dataset.price;
+     
     
+        document.getElementById("price").innerHTML = langgananPrice;
+    };
+   
+
+ 
+
+
+  
 </script>
 
 </body>
