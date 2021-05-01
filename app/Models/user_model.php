@@ -48,6 +48,8 @@ class user_model extends Model
     {
         return $this->db->table('user_purchase')->insert($data);
     }
+  
+
 
     
 }

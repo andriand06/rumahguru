@@ -28,4 +28,53 @@ class Academy extends BaseController
         
         return view('/academy/list',$data);
     }
+
+    public function my()
+    {
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+        $username = $this->session->get('username');
+        $trial = $this->session->get('trial');
+        $data = [
+            'username' => $username,
+            'trial' => $trial,
+            'isactive' => $this->session->get('is_active'),
+        ];
+        return view('academy/my',$data);
+    }
+    public function exams()
+    {
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+        $username = $this->session->get('username');
+        $trial = $this->session->get('trial');
+        $data = [
+            'username' => $username,
+            'trial' => $trial,
+            'isactive' => $this->session->get('is_active'),
+        ];
+        return view('academy/exams',$data);
+    }
+    public function submission()
+    {
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+        $username = $this->session->get('username');
+        $trial = $this->session->get('trial');
+        $data = [
+            'username' => $username,
+            'trial' => $trial,
+            'isactive' => $this->session->get('is_active'),
+        ];
+        return view('academy/submission',$data);
+    }
 }

@@ -28,6 +28,7 @@ class dashboard extends BaseController
             'username' => $username,
             'trial' => $trial,
             'isactive' => $this->session->get('is_active'),
+            'status' => $this->session->get('status'),
         ];
         //$isactive = $this->session->get('is_active');
         //dd($isactive);

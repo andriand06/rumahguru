@@ -35,16 +35,21 @@
         <?php if($isactive === 1) :?>
         <div class="container"></div>
         <?php endif;?>
+        <?php if(!isset($status)) : ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="kartu putih">
                     <h5>Progres Profil Anda</h5>
                     <label for="">Dengan melengkapi profil, Anda dapat menikmati layanan Dicoding dengan maksimal.</label>
                     <p><b>Contoh: Melihat sertifikat kelulusan Academy.</b></p>
-                    <a href="" class="btn btn-light mt-3" style="display: block; width: 200px; height:40px">Lengkapi Sekarang</a>
+                    <a href="/Profile/index" class="btn btn-light mt-3" style="display: block; width: 200px; height:40px">Lengkapi Sekarang</a>
                 </div>
             </div>
         </div>
+        <?php endif;?>
+        <?php if (isset($status)) : ?>
+            <div class="container"></div>
+        <?php endif;?>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
