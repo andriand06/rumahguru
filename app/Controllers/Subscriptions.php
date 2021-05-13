@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\langganan_model;
+use App\Models\subscriptions_model;
 use App\Models\user_model;
 use CodeIgniter\I18n\Time;
 class Subscriptions extends BaseController
@@ -10,10 +11,12 @@ class Subscriptions extends BaseController
     protected $session;
     protected $user_model;
     protected $langganan_model;
+    protected $subscriptions_model;
     public function __construct()
     {
         $this->user_model = new user_model();
         $this->langganan_model = new langganan_model();
+        $this->subscriptions_model = new subscriptions_model();
         $this->session = \Config\Services::session();
         $this->cek_status();
     }
@@ -65,6 +68,12 @@ class Subscriptions extends BaseController
     }
     public function trial()
     {
+        if($this->cek_status())
+        {
+            
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
         $time = new Time('now');
         $username = $this->session->get('username');
         $data = 
@@ -90,5 +99,43 @@ class Subscriptions extends BaseController
         //dd($data);
         session()->setFlashdata('pesan','Selamat anda berhasil mendaftar Kelas Trial selama 15hari!');
         return view('dashboard/index',$data);
+    }
+    public function upload()
+    {
+        if($this->cek_status())
+        {
+            
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+
+        if(!$this->validate([
+            'bukti' => [
+                'rules'=> 'uploaded[bukti]|mime_in[bukti,image/jpg,image/jpeg,image/png]|max_size[bukti,2048]',
+                'errors' => [
+                    'uploaded' => 'Silahkan Upload Bukti Pembayaran',
+                    'mime_in' => "File Bukti harus berupa jpg,jpeg,png",
+                    "max_size" => "Ukuran file maksimal 2MB",
+                ],
+            ],
+        ])) {
+            session()->setFlashdata('error','Bukti Pembayaran Belum Benar');
+            return redirect()->back()->withInput();
+
+        } 
+        $username = $this->session->get('username');
+        $email = $this->session->get('email');
+        $dataBukti = $this->request->getFile('bukti');
+        $filename = $dataBukti->getRandomName();
+        $this->subscriptions_model->insert([
+            'id' => '',
+            'username' => $username,
+            'email' => $email,
+            'bukti' => $filename,
+
+        ]);
+        $dataBukti->move('upload/bukti/', $filename);
+        session()->setFlashdata('pesan','Bukti berhasil diupload dan akan di proses Admin, Silahkan Tunggu Email dari Rumah Guru');
+        return redirect()->to('/dashboard/index');
     }
 }

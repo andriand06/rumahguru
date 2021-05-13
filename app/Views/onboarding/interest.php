@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="interest mb-4 <?= ($val->hasError('interest')) ? 'is-invalid' : '' ;?>" id="divInterest">
-                        <div class="row">
+                        <div class="row mt">
                             <div class="col-md-4 mt-2">
                                 
                                     <input type="checkbox" name="interest[]" value="Komputer" id="checkinterest" > 
@@ -42,7 +42,7 @@
                           
                         </div>
 
-                       <div class="row">
+                       <div class="row mt-2">
                             <div class="col-md-4 mt-2">
                                 
                                 <input type="checkbox" value="Andrian" name="interest[]" id="checkinterest"> 

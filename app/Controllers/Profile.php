@@ -148,6 +148,7 @@ Class Profile extends BaseController
                 'status' => '1'
             ];
             $this->session->set($data1);
+            
             session()->setFlashdata('pesan','Data Profile Anda berhasil disimpan');
             return redirect()->to('/dashboard/index');
         }
