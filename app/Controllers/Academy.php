@@ -40,10 +40,13 @@ class Academy extends BaseController
         }
         $username = $this->session->get('username');
         $trial = $this->session->get('trial');
+        
+        
         $data = [
             'username' => $username,
             'trial' => $trial,
             'isactive' => $this->session->get('is_active'),
+            'kelas' => $this->session->get('kelas'),
         ];
         return view('academy/my',$data);
     }
@@ -81,6 +84,7 @@ class Academy extends BaseController
     }
     public function matematika()
     {
+        
         $is_purchase = $this->session->get('is_purchase');
         if ($is_purchase == 0)
         {
@@ -89,6 +93,12 @@ class Academy extends BaseController
         } else
         {
             $username = $this->session->get('username');
+            $data =
+            [
+                'kelas' => ['matematika']
+            ];
+            session()->set($data);
+        
             $data = 
             [
                 'username' => $username,

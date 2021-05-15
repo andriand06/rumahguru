@@ -61,7 +61,7 @@
             <div id="content">
 
               
-
+                <?php if(!isset($kelas)) : ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -83,8 +83,8 @@
                             <tbody>
                                 <tr>
                                 
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td>-</td>
+                                <td>-</td>
                                
                                 </tr>
                                
@@ -104,8 +104,8 @@
                             <tbody>
                                 <tr>
                                 
-                                <td>Mark</td>
-                                <td>Otto</td>
+                                <td>-</td>
+                                <td>-</td>
                                
                                 </tr>
                                
@@ -119,8 +119,69 @@
                    
 
                 </div>
+                <?php endif; ?>
                 <!-- /.container-fluid -->
+                <?php if (isset($kelas)) : ?>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"><img src="<?= base_url('/assets/img/buku.png');?>" alt=""> Kelas</h1>
+                   
+                    </div>
+                    <p>Kelas</p>
+                    
+                    <div class="kontainer putih mt-3">
+                        <h5>Kelas yang sedang dipelajari</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Kelas</th>
+                                <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($kelas as $i) : ?>
+                                <tr>
+                                
+                                <td><?= $i   ; ?></td>
+                                <td><a href="" class="btn btn-primary">Lanjut Belajar</a></td>
+                               
+                                </tr>
+                               
+                            <?php endforeach;?>
+                            </tbody>
+                            </table>
+                    </div>
+                    <div class="kontainer putih mt-5">
+                        <h5>Kelas yang sudah lulus</h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Kelas</th>
+                                <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                
+                                <td>-</td>
+                                <td>-</td>
+                               
+                                </tr>
+                               
+                            
+                            </tbody>
+                            </table>
+                    </div>
+
+                   
+                   
+                   
+
+                </div>
+                <?php endif;?>
             </div>
             <!-- End of Main Content -->
 
