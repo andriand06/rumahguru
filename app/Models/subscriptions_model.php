@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class subscriptions_model extends Model{
     protected $table = 'bukti';
     protected $useTimeStamps = true;
-    protected $allowedFields = ['id','username','email','bukti'];
+    protected $allowedFields = ['id','username','email','bukti','date'];
 
     public function insertData($data)
     {

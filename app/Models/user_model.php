@@ -22,6 +22,10 @@ class user_model extends Model
     {
         return $this->db->table('user')->getWhere(['username'=>$username])->getRowArray();
     }
+    public function getPurchase($username)
+    {
+        return $this->db->table('user_purchase')->getWhere(['username'=>$username])->getRowArray();
+    }
     public function getData($id)
     {
         return $this->where(['id' => $id])->first();

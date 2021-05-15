@@ -29,10 +29,16 @@ class Subscriptions extends BaseController
         }
         
         $username = $this->session->get('username');
+        $email = $this->session->get('email');
         $data = [
+            'id' => '',
             'username' => $username,
-            'isactive' => $this->session->get('is_active'),
+            'email' => $email,
             'langganan' => $this->request->getPost('langganan'),
+            'is_purchase' => 0,
+            
+            'datestart' => new Time(),
+            'dateend' => '',
         ];
         return view('/subscriptions/purchase',$data);
     }
@@ -44,13 +50,18 @@ class Subscriptions extends BaseController
             $this->cek_status();
             return redirect()->to('/auth/login');
         }
+        
         $username = $this->session->get('username');
+        $email = $this->session->get('email');
      
         $data = [
-            'id'=> '',
+            'id' => '',
             'username' => $username,
-            'langganan_id' => $this->request->getVar('langganan'),
-            'is_active' => $this->session->get('is_active'),
+            'email' => $email,
+            'langganan_id' => $this->request->getPost('langganan'),
+            'is_purchase' => 0,
+            'datestart' => new Time(),
+            'dateend' => '',
         ];
         $langganan_id = $this->request->getVar('langganan');
         $this->user_model->insertuserPurchase($data);
@@ -60,8 +71,9 @@ class Subscriptions extends BaseController
             'username' => $username,
             'langganan_id' => $this->request->getVar('langganan'),
             'is_active' => $this->session->get('is_active'),
+            'val' => \Config\Services::validation()
         ];
-        $isi = $this->langganan_model->getData($langganan_id);
+        
         //dd($isi);
         
         return view('/subscriptions/checkout',$data);
@@ -91,7 +103,7 @@ class Subscriptions extends BaseController
             'id' => '',
             'username' => $username,
             'trial' => 1,
-            'datestart' => time(),
+            'datestart' => new time(),
             'dateend' => $time->addDays(15),
             'isactive' => $this->session->get('is_active')
         ];
@@ -100,7 +112,7 @@ class Subscriptions extends BaseController
         session()->setFlashdata('pesan','Selamat anda berhasil mendaftar Kelas Trial selama 15hari!');
         return view('dashboard/index',$data);
     }
-    public function upload()
+    public function upload($id)
     {
         if($this->cek_status())
         {
@@ -119,10 +131,25 @@ class Subscriptions extends BaseController
                 ],
             ],
         ])) {
-            session()->setFlashdata('error','Bukti Pembayaran Belum Benar');
-            return redirect()->back()->withInput();
+            session()->setFlashdata('error','Bukti Pembayaran Belum di Upload');
+        //     $langganan_id = $this->request->getVar('langganan');
+        //     $data = 
+        // [
+            
+        //     'isi' => $this->langganan_model->getData($langganan_id),
+        //     'val' => \Config\Services::validation()
+        // ];
+       $username = $this->session->get('username');
+        
+        $data = [
+            'isi' => $this->langganan_model->getData($id),
+            'isactive' => $this->session->get('is_active'),
+            'username' => $username,
+            'val' => \Config\Services::validation()
+        ];
+            return view('/subscriptions/checkout',$data);
 
-        } 
+        } else {
         $username = $this->session->get('username');
         $email = $this->session->get('email');
         $dataBukti = $this->request->getFile('bukti');
@@ -132,10 +159,13 @@ class Subscriptions extends BaseController
             'username' => $username,
             'email' => $email,
             'bukti' => $filename,
-
+            'date' => new Time('now'),
+             
         ]);
+       
         $dataBukti->move('upload/bukti/', $filename);
         session()->setFlashdata('pesan','Bukti berhasil diupload dan akan di proses Admin, Silahkan Tunggu Email dari Rumah Guru');
         return redirect()->to('/dashboard/index');
+    }
     }
 }

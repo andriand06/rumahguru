@@ -17,7 +17,7 @@
     </div>
     <div class="kartu biru">
         <h5>Paket Langganan Belajar</h5>
-        <form action="/subscriptions/checkout/<?= $langganan;?>" method="post">
+        <form action="/subscriptions/checkout/" method="post">
         <?= csrf_field(); ?>
         <select name="langganan" id="langganan">
             <option value="1" data-price="300000" data-point ="300" data-days="30 hari">Langganan 30 Hari <b>Rp 300,000</b></option>

@@ -21,9 +21,11 @@ class Academy extends BaseController
             return redirect()->to('/auth/login');
         }
         $username = $this->session->get('username');
+        
         $data = [
             'username' => $username,
             'isactive' => $this->session->get('is_active'),
+            'is_purchase' => $this->session->get('is_purchase'),
         ];
         
         return view('/academy/list',$data);
@@ -76,5 +78,24 @@ class Academy extends BaseController
             'isactive' => $this->session->get('is_active'),
         ];
         return view('academy/submission',$data);
+    }
+    public function matematika()
+    {
+        $is_purchase = $this->session->get('is_purchase');
+        if ($is_purchase == 0)
+        {
+            session()->setFlashdata('pesan','Maaf Anda belum melakukan pembelian Langganan, Silahkan membeli paket Langganan terlebih dahulu');
+            return view('/academy/list');
+        } else
+        {
+            $username = $this->session->get('username');
+            $data = 
+            [
+                'username' => $username,
+                'isactive' => $this->session->get('is_active'),
+                'is_purchase' => $this->session->get('is_purchase'),
+            ];
+            return view('/academy/matematika',$data);
+        }
     }
 }
