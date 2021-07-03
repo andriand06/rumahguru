@@ -54,16 +54,16 @@
 
 <div class="kotak" id="about">
     <div class="container">
-        <div class="row">
+        <div class="row pt-5">
             <div class="col-sm-2"></div>  
-            <div class="col-sm-8">
+            <div class="col-sm-8 mt-5">
                 <h1>Kenapa Rumah Guru?</h1>
                 <p>Saatnya bijak dalam memilih sumber Belajar.Tak hanya yang terjamin dan berkualitas,Rumah Guru juga memiliki pengajar profesional yang siap membantu Anda.</p>
             </div>
             <div class="col-sm-2"></div>  
         </div>
-        <div class="row">
-            <div class="col-sm-3">
+        <div class="row mt-5">
+            <div class="col-sm-3 mt-2">
                 <img src="<?= base_url('/assets/img/buku.png');?>" alt="Buku">
                 <h4>Kurikulum standar industri global</h4>
                 <label for="">Kurikulum dikembangkan bersama perusahaan dan pemilik teknologi dunia sesuai kebutuhan industri terkini.</label>
@@ -83,7 +83,9 @@
                 <h4>Alumni terpercaya di berbagai perusahaan</h4>
                 <label for="">Sertifikat yang membuktikan pengetahuan fundamental serta keterampilan nyata yang diinginkan perusahaan global.</label>
             </div>
-
+        </div>
+        <div class="row mt-5">
+            <a href="/auth/registrasi" class="btn btn-primary" style="width:200px;margin:auto;">Belajar Sekarang</a>
         </div>
     </div>
 </div>

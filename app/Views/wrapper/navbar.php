@@ -57,6 +57,4 @@
   </div>
 </nav>
 
-<footer>
-  <p>&copy;Copyright Rumah Guru 2021</p>
-</footer>
+

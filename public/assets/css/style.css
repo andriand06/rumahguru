@@ -5,6 +5,9 @@
 body{
     background-color:#F8F8FF;
 }
+footer {
+    position: fixed;
+}
 @media (min-width:640px)
 {
     .jumbo ,.interest{
@@ -64,11 +67,12 @@ nav{
 input {
     margin: 10px 0 10px 0;
 }
+
 .kotak {
-    margin: 0 0 0 0;
+    margin: auto;
     background-color: white;
     width: 100%;
-    height: 500px;
+    height: 800px;
     
 }
 #about {

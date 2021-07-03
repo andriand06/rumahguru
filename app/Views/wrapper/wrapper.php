@@ -21,6 +21,9 @@
 <?= $this->include('wrapper/navbar')   ; ?>
 
 <?= $this->renderSection('content')   ; ?>
+<footer>
+  <p>&copy;Copyright Rumah Guru 2021</p>
+</footer>
 <script src="<?= base_url('/assets/js/bootstrap.bundle.min.js');?>"></script>
  <!-- Bootstrap core JavaScript-->
  <script src="<?= base_url('/bootstrap/sbadmin/vendor/jquery/jquery.min.js');?>"></script>

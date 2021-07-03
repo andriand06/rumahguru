@@ -35,8 +35,8 @@
                             </div>
                             <div class="col-md-4 mt-2">
                               
-                                    <input type="checkbox" name="interest[]" value="<?= $username;?>" id="checkinterest"> 
-                                    <label for="" id="labelinterest"><?= $username   ; ?></label>
+                                    <input type="checkbox" name="interest[]" value="Astronomi" id="checkinterest"> 
+                                    <label for="" id="labelinterest">Astronomi</label>
                                 
                             </div>
                           
@@ -45,20 +45,20 @@
                        <div class="row mt-2">
                             <div class="col-md-4 mt-2">
                                 
-                                <input type="checkbox" value="Andrian" name="interest[]" id="checkinterest"> 
-                                <label for="" id="labelinterest">Andrian</label>
+                                <input type="checkbox" value="Fisika" name="interest[]" id="checkinterest"> 
+                                <label for="" id="labelinterest">Fisika</label>
                             
                             </div>
                             <div class="col-md-4 mt-2">
                                 
-                                <input type="checkbox" value="Andrian" name="interest[]" id="checkinterest"> 
-                                <label for="" id="labelinterest">Andrian</label>
+                                <input type="checkbox" value="Biologi" name="interest[]" id="checkinterest"> 
+                                <label for="" id="labelinterest">Biologi</label>
                             
                             </div>
                             <div class="col-md-4 mt-2 mb-2">
                                 
-                                <input type="checkbox" value="Andrian" name="interest[]" id="checkinterest"> 
-                                <label for="" id="labelinterest">Andrian</label>
+                                <input type="checkbox" value="Ekonomi" name="interest[]" id="checkinterest"> 
+                                <label for="" id="labelinterest">Ekonomi</label>
                             
                             </div>
                        </div>

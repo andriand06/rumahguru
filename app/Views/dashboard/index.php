@@ -177,7 +177,7 @@
                 <p>Berikut adalah rekomendasi kelas sesuai dengan minat belajar Anda. Pelajari sekarang juga.</p>
                 <div class="col-md-3 mt-3">
                     
-                    <div class="card" style="width: 15rem;">
+                    <div class="card" style="width: 20rem;">
                         <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
@@ -187,31 +187,31 @@
                 </div>
                 <div class="col-md-3 mt-3">
                     
-                    <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/geology.png');?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                            <h5 class="card-title"><a href="">Belajar Geografi</a></h5>
+                            <p class="card-text">Pelajari Geografi dengan kurikulum terlengkap.</p></p>
                         </div>
                     </div>  
                 </div>
                 <div class="col-md-3 mt-3">
                     
-                    <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/biology.png');?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                            <h5 class="card-title"><a href="">Belajar Biologi</a></h5>
+                            <p class="card-text">Pelajari Biologi dengan kurikulum terlengkap.</p></p>
                         </div>
                     </div>  
                 </div>
                 <div class="col-md-3 mt-3">
                     
-                    <div class="card" style="width: 15rem;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="<?= base_url('/assets/img/png/astronomy.png');?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                            <h5 class="card-title"><a href="">Belajar Astronomi</a></h5>
+                            <p class="card-text">Pelajari Astronomi dengan kurikulum terlengkap.</p></p>
                         </div>
                              
                     </div>

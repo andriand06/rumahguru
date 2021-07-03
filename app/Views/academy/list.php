@@ -1,8 +1,9 @@
 <?= $this->extend('wrapper/wrapper')   ; ?>
 <?= $this->section('content')   ; ?>
-<div class="container">
+
+    <div class="breadcrumb">
     <p><a href="/dashboard/">Beranda</a> / <a href="/academy/list">Academy</a> / Daftar Kelas</p>
-</div>
+    </div>
 <div class="kontainer putih">
     <div class="kartu biru">
         <h1>Daftar Kelas</h1>
@@ -13,133 +14,170 @@
     <?php if($is_purchase == 1) : ?>
     
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <form method="" action="">
             <div class="card"  style="width: 20rem; margin-left:40px">
                 <div class="card-body">
-                        <h5 class="card-title">Filter</h5>
-                        <input type="text" class="search" placeholder="Cari Kelas">
+                        <h5>Filter</h5>
+                        <input type="text" class="search" id="cari" placeholder="Cari Kelas" onkeyup="Cari()">
                 </div>
             </div>
+            </form>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card" style="width: 20rem;">
                 <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
+                    <h5 class="card-title" ><a href="" id="title">Belajar Matematika</a></h5>
                     <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
                     <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                <img class="card-img-top" src="<?= base_url('/assets/img/png/geology.png');?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                    <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                    <h5 class="card-title" ><a href="" id="title">Belajar Geografi</a></h5>
+                    <p class="card-text">Pelajari Geografi dengan kurikulum terlengkap.</p></p>
                     <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="row mt-5" >
-            <div class="col-md-4">
-                <div class="card" style="width: 20rem; margin-left:40px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                        <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                    </div>
+        
+        <div class="col-md-3">
+            <div class="card" style="width: 20rem; margin-left:40px">
+                <img class="card-img-top" src="<?= base_url('/assets/img/png/biology.png');?>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" ><a href="" id="title">Belajar Biologi</a></h5>
+                    <p class="card-text">Pelajari Biologi dengan kurikulum terlengkap.</p></p>
+                    <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 20rem; margin-left:8px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                        <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 20rem; margin-left:15px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                        <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>  
+        </div>
     </div>
+        <div class="row mt-5" >
+            <div class="col-md-3">
+                <div class="card" style="width: 20rem; margin-left:40px">
+                    <img class="card-img-top" src="<?= base_url('/assets/img/png/astronomy.png');?>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" ><a href="" id="title">Belajar Astronomi</a></h5>
+                        <p class="card-text">Pelajari Astronomi dengan kurikulum terlengkap.</p></p>
+                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 20rem; margin-left:2px">
+                    <img class="card-img-top" src="<?= base_url('/assets/img/png/chemistry.png');?>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" ><a href="" id="title">Belajar Science</a></h5>
+                        <p class="card-text">Pelajari Science dengan kurikulum terlengkap.</p></p>
+                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>  
+    
     <?php endif ; ?>
     <?php endif; ?>
     <?php if(!isset($is_purchase)) : ?>
-    <div class="row">
-        <div class="col-md-4">
+        <div class="row">
+        <div class="col-md-3">
+            <form id="cari" action="">
             <div class="card"  style="width: 20rem; margin-left:40px">
                 <div class="card-body">
-                        <h5 class="card-title">Filter</h5>
-                        <input type="text" class="search" placeholder="Cari Kelas">
+                        <h5>Filter</h5>
+                        <input type="text" class="search" id="cari" placeholder="Cari Kelas" onkeyup="Cari()">
                 </div>
             </div>
+            </form>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card" style="width: 20rem;">
                 <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
+                    <h5 class="card-title"><a href="" id="title">Belajar Matematika</a></h5>
                     <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                    <a href="/subscriptions/purchase" class="btn btn-info button">Daftar Sekarang</a>
+                    <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                <img class="card-img-top" src="<?= base_url('/assets/img/png/geology.png');?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                    <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                    <a href="/subscriptions/purchase" class="btn btn-info button">Daftar Sekarang</a>
+                    <h5 class="card-title" ><a href="" id="title">Belajar Geografi</a></h5>
+                    <p class="card-text">Pelajari Geografi dengan kurikulum terlengkap.</p></p>
+                    <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="row mt-5" >
-            <div class="col-md-4">
-                <div class="card" style="width: 20rem; margin-left:40px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                        <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                        <a href="/subscriptions/purchase" class="btn btn-info button">Daftar Sekarang</a>
-                    </div>
+        
+        <div class="col-md-3">
+            <div class="card" style="width: 20rem; margin-left:40px">
+                <img class="card-img-top" src="<?= base_url('/assets/img/png/biology.png');?>" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" ><a href="" id="title">Belajar Biologi</a></h5>
+                    <p class="card-text">Pelajari Biologi dengan kurikulum terlengkap.</p></p>
+                    <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 20rem; margin-left:8px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                        <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                        <a href="/subscriptions/purchase" class="btn btn-info button">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 20rem; margin-left:15px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                        <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                        <a href="/subscriptions/purchase" class="btn btn-info button">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-        </div>  
+        </div>
     </div>
+        <div class="row mt-5" >
+            <div class="col-md-3">
+                <div class="card" style="width: 20rem; margin-left:40px">
+                    <img class="card-img-top" src="<?= base_url('/assets/img/png/astronomy.png');?>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" ><a href="" id="title">Belajar Astronomi</a></h5>
+                        <p class="card-text">Pelajari Astronomi dengan kurikulum terlengkap.</p></p>
+                        <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card" style="width: 20rem; margin-left:2px">
+                    <img class="card-img-top" src="<?= base_url('/assets/img/png/chemistry.png');?>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" ><a href="" id="title">Belajar Science</a></h5>
+                        <p class="card-text">Pelajari Science dengan kurikulum terlengkap.</p></p>
+                        <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>  
     <?php endif;?>
 </div>
-
+<script>
+    function Cari(){
+        const cariValue = document.getElementById("cari").value;
+        const card = document.getElementsByClassName("card");
+        const filter = cariValue.toLowerCase();
+        
+       console.log(card)
+        for(let i=0;i< card.length;i++){
+            const cardBody = card[i].getElementsByClassName("card-body");
+            console.log(cardBody)
+            for(let j=0;j< cardBody.length;j++){
+                const cardTitle = cardBody[j].getElementsByClassName("card-title");
+                    console.log(cardTitle)
+                for(let k=0; k < cardTitle.length;k++) {
+                    let a = cardTitle[k].querySelector("#title");
+                    let text = a.innerText;
+                    console.log(a)
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    card[i].style.display = "";
+                } else {
+                    card[i].style.display = "none";
+                }
+                }
+                
+            }
+        }
+    }
+    
+</script>
 <?= $this->endSection()   ; ?>

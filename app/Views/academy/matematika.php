@@ -3,7 +3,7 @@
 
 
 
-<div class="container">
+<div class="breadcrumb">
     <p><a href="/dashboard/">Beranda</a> / <a href="/academy/matematika">Academy</a> / Matematika</p>
 </div>
 <div class="kontainer putih">
