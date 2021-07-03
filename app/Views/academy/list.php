@@ -151,33 +151,5 @@
         </div>  
     <?php endif;?>
 </div>
-<script>
-    function Cari(){
-        const cariValue = document.getElementById("cari").value;
-        const card = document.getElementsByClassName("card");
-        const filter = cariValue.toLowerCase();
         
-       console.log(card)
-        for(let i=0;i< card.length;i++){
-            const cardBody = card[i].getElementsByClassName("card-body");
-            console.log(cardBody)
-            for(let j=0;j< cardBody.length;j++){
-                const cardTitle = cardBody[j].getElementsByClassName("card-title");
-                    console.log(cardTitle)
-                for(let k=0; k < cardTitle.length;k++) {
-                    let a = cardTitle[k].querySelector("#title");
-                    let text = a.innerText;
-                    console.log(a)
-                if (text.toLowerCase().indexOf(filter) > -1) {
-                    card[i].style.display = "";
-                } else {
-                    card[i].style.display = "none";
-                }
-                }
-                
-            }
-        }
-    }
-    
-</script>
 <?= $this->endSection()   ; ?>

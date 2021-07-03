@@ -81,7 +81,39 @@
 
     }
     
-            
+    function Cari(){
+        const cariValue = document.getElementById("cari").value;
+        const col = document.getElementsByClassName("col-md-3");
+        
+        const filter = cariValue.toLowerCase();
+        
+       console.log(col)
+       for(let l=0;l < col.length;l++){
+        const card = col[l].getElementsByClassName("card");
+       
+        for(let i=0;i< card.length;i++){
+            const cardBody = card[i].getElementsByClassName("card-body");
+            console.log(cardBody)
+            for(let j=0;j< cardBody.length;j++){
+                const cardTitle = cardBody[j].getElementsByClassName("card-title");
+                    console.log(cardTitle)
+                for(let k=0; k < cardTitle.length;k++) {
+                    let a = cardTitle[k].querySelector("#title");
+                    let text = a.innerText;
+                    console.log(a)
+                if (text.toLowerCase().indexOf(filter) > -1) {
+                    col[l].style.display = "";
+                } else {
+                    col [l].style.display = "none";
+                }
+                }
+                
+            }
+       
+        }
+    }
+}
+    
   
 
 
