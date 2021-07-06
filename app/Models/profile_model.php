@@ -13,4 +13,10 @@ class profile_model extends Model
     {
        return $this->db->table('profile')->insert($data);
     }
+    public function getData(){
+        return $this->findAll();
+    }
+    public function getStatus($username){
+        return $this->where('username',$username)->findColumn('status');
+    }
 }

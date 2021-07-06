@@ -75,8 +75,8 @@
             </div>
             <div class="col-sm-3">
                 <img src="<?= base_url('/assets/img/imac.png');?>" alt="laptop">
-                <h4>Code Review dari developer expert</h4>
-                <label for="">Validasi skill Anda melalui 1-on-1 Professional Code Review yang diberikan langsung oleh Developer Expert.</label>
+                <h4>Lesson Review dari developer expert</h4>
+                <label for="">Validasi pelajaran Anda melalui 1-on-1 Professional Lesson Review yang diberikan langsung oleh Pengajar Expert.</label>
             </div>
             <div class="col-sm-3">
                 <img src="<?= base_url('/assets/img/orang.png');?>" alt="laptop">
@@ -84,10 +84,35 @@
                 <label for="">Sertifikat yang membuktikan pengetahuan fundamental serta keterampilan nyata yang diinginkan perusahaan global.</label>
             </div>
         </div>
+        <a href="/auth/registrasi" class="btn btn-primary mt-5" style="width:200px;margin:auto;">Belajar Sekarang</a>
+        <h1 class="mt-5">Testimoni Siswa</h1>
+          <div class="buttonContainer mt-5">
+            <a href="" id="beforeButton" class="btn btn-primary">Before</a>
+            <a href="" id="nextButton" class="btn btn-primary">Next</a>
+          </div>
+        <div class="testimonywrapper">
+
         <div class="row mt-5">
-            <a href="/auth/registrasi" class="btn btn-primary" style="width:200px;margin:auto;">Belajar Sekarang</a>
-        </div>
-    </div>
+            <div class="col-6">
+            
+                  <div class="image-wrapper">
+                    <img style="width: 500px;height:400px" src="/assets/img/pp.jpg"alt="Profile">
+                      
+                  </div>
+            
+            </div>
+            <div class="col-6">
+              <div class="text-wrapper mt-5">
+                    <p class="font-weight-medium">"Lorem ipsum   sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, asperiores ullam provident quae culpa magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, labore! Repellendus, quia sint inventore, sapiente ratione nam minima aperiam, ullam soluta deleniti officiis! Maiores, aut. Fugit nostrum ipsam ab dignissimos? </p>
+                    <p class="font-weight-light mt-5">Andrian Davinta</p>
+                    <p class="font-weight-light">SMP Xaverius 1</p>
+                    <p class="font-weight-light">Lulusan Kelas Matematika</p>
+
+              </div>
+            </div>  
+          </div>
+      </div>
+</div>  
 </div>
 
 

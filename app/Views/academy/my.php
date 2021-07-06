@@ -60,8 +60,8 @@
             <!-- Main Content -->
             <div id="content">
 
-              
-                <?php if(!isset($kelas)) : ?>
+              <?php if($is_purchase === "0" || $is_purchase === null) : ?>
+               
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -120,7 +120,9 @@
 
                 </div>
                 <?php endif; ?>
+                
                 <!-- /.container-fluid -->
+                <?php if($is_purchase === "1") : ?>
                 <?php if (isset($kelas)) : ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -146,7 +148,7 @@
                                 <tr>
                                 
                                 <td><?= $i   ; ?></td>
-                                <td><a href="" class="btn btn-primary">Lanjut Belajar</a></td>
+                                <td><a href="/academy/<?= $i   ; ?>" class="btn btn-primary">Lanjut Belajar</a></td>
                                
                                 </tr>
                                
@@ -182,6 +184,7 @@
 
                 </div>
                 <?php endif;?>
+                <?php endif; ?>
             </div>
             <!-- End of Main Content -->
 

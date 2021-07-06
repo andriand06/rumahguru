@@ -3,14 +3,16 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
+use App\Models\purchase_model;
 class Academy extends BaseController
 {
     protected $session;
+    protected $purchase_model;
     public function __construct()
     {
         $this->session =\Config\Services::session();
         $this->cek_status();
+        $this->purchase_model = new purchase_model();
     }
     
     public function list()
@@ -25,7 +27,7 @@ class Academy extends BaseController
         $data = [
             'username' => $username,
             'isactive' => $this->session->get('is_active'),
-            'is_purchase' => $this->session->get('is_purchase'),
+            'is_purchase' => $this->purchase_model->getPurchase($username),
         ];
         
         return view('/academy/list',$data);
@@ -47,7 +49,10 @@ class Academy extends BaseController
             'trial' => $trial,
             'isactive' => $this->session->get('is_active'),
             'kelas' => $this->session->get('kelas'),
+            'is_purchase' => $this->purchase_model->getPurchase($username),
         ];
+        //$is_purchase = $this->purchase_model->getPurchase($username);
+        //dd($is_purchase);
         return view('academy/my',$data);
     }
     public function exams()
@@ -84,12 +89,12 @@ class Academy extends BaseController
     }
     public function matematika()
     {
-        
-        $is_purchase = $this->session->get('is_purchase');
-        if ($is_purchase == 0)
+        $username = $this->session->get('username');
+        $is_purchase = $this->purchase_model->getPurchase($username);
+        if ($is_purchase === "0" || !isset($is_purchase))
         {
             session()->setFlashdata('pesan','Maaf Anda belum melakukan pembelian Langganan, Silahkan membeli paket Langganan terlebih dahulu');
-            return view('/academy/list');
+            return redirect()->to('/academy/list');
         } else
         {
             $username = $this->session->get('username');
@@ -102,8 +107,8 @@ class Academy extends BaseController
             $data = 
             [
                 'username' => $username,
-                'isactive' => $this->session->get('is_active'),
-                'is_purchase' => $this->session->get('is_purchase'),
+                
+                
             ];
             return view('/academy/matematika',$data);
         }

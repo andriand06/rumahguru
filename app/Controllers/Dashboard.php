@@ -2,16 +2,20 @@
 
 namespace App\Controllers;
 
-
+use App\Models\user_model;
+use App\Models\profile_model;
 
 class dashboard extends BaseController
 {
     protected $session;
-   
+    protected $user_model;
+    protected $profile_model;
     public function __construct()
     {
         $this->session = \Config\Services::session();
         $this->email = \Config\Services::email();
+        $this->user_model = new  user_model();
+        $this->profile_model = new profile_model();
         $this->cek_status();
     }
     public function index()
@@ -22,15 +26,18 @@ class dashboard extends BaseController
             return redirect()->to('/auth/login');
         }
         $username = $this->session->get('username');
+        
         $trial = $this->session->get('trial');
         //dd($trial);
         $data = [
             'username' => $username,
             'trial' => $trial,
-            'isactive' => $this->session->get('is_active'),
-            'status' => $this->session->get('status'),
+            'isactive' => $this->user_model->getIsActive($username),
+            //'isactive' => $this->session->get('is_active'),
+            'status' => $this->profile_model->getStatus($username),
         ];
-        //$isactive = $this->session->get('is_active');
+
+        //$isactive = $this->user_model->getIsActive($username);
         //dd($isactive);
         return view('dashboard/index',$data);
     }

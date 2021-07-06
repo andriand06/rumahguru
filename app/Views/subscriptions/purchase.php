@@ -1,9 +1,12 @@
 <?= $this->extend('wrapper/wrapper')   ; ?>
 <?= $this->section('content')   ; ?>
 
-<div class="kontainer">
-    <div class="container">
-        <div class="row">
+<div class="breadcrumb">
+    <p><a href="/subscriptions/purchase">Langganan</a> / Mulai Berlangganan</p>
+</div>
+<div class="kontainer mt-5">
+    
+        <div class="row ml-5">
             <div class="col-md-8">
                 <h3>Daftar Biaya Belajar</h3>
                 <p>Pilih paket langganan sebagai investasi
@@ -13,8 +16,6 @@
                 <img src="<?= base_url('/assets/img/png/tutorial.png');?>" alt="">
             </div>
         </div>
-        
-    </div>
     <div class="kartu biru">
         <h5>Paket Langganan Belajar</h5>
         <form action="/subscriptions/checkout/" method="post">

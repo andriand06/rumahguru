@@ -31,6 +31,15 @@ class user_model extends Model
         return $this->where(['id' => $id])->first();
         
     }
+    public function getUser(){
+        return $this->findAll();
+    }
+    public function getIsActive($username){
+        return $this->where('username',$username)->findColumn('is_active');
+    }
+    public function getIsAdmin($username){
+        return $this->where('username',$username)->findColumn('is_admin');
+    }
     public function getEmail($email)
     {
         return $this->db->table('user')->getWhere(['email'=>$email])->getRowArray();

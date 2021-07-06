@@ -6,7 +6,7 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-
+use App\Models\user_model;
 /**
  * Class BaseController
  *
@@ -28,6 +28,7 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
+	protected $user_model;
 	/** 
 	 * Inteliphense @mixin Solved
 	 * Instance of the main request object.
@@ -35,12 +36,23 @@ class BaseController extends Controller
 	 * @var HTTP\IncomingRequest
 	*/
 	protected $request;
+	public function __construct()
+	{
+		$this->user_model = new user_model();
+	}
 	public function cek_status()
 	{
 		$session = \Config\Services::session();
 		if($session->has('username') == null)
 		{
 			session()->setFlashdata('error','Silahkan login terlebih dahulu untuk mengakses halaman ini');
+			return redirect()->to('/auth/login');
+		}
+	}
+	public function is_admin($username) {
+		$isAdmin = $this->user_model->getIsAdmin($username);
+		//dd($isAdmin);
+		if($isAdmin[0] !== "1") {
 			return redirect()->to('/auth/login');
 		}
 	}

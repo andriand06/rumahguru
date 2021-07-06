@@ -5,24 +5,39 @@ namespace App\Controllers;
 use App\Models\purchase_model;
 use App\Models\subscriptions_model;
 use App\Models\user_model;
+use App\Models\profile_model;
+use App\Models\interest_model;
+use phpDocumentor\Reflection\Types\This;
 
 class Admin extends BaseController{
     protected $subscriptions_model;
     protected $user_model;
     protected $purchase_model;
+    protected $profile_model;
+    protected $interest_model;
     protected $session;
     public function __construct()
     {
         $this->subscriptions_model = new subscriptions_model();
         $this->user_model = new user_model();
         $this->purchase_model = new purchase_model();
+        $this->profile_model = new profile_model();
+        $this->interest_model = new interest_model();
+        $this->session = \Config\Services::session();
         $this->session = \Config\Services::session();
         $this->email = \Config\Services::email();
-        
+        $this->username = $this->session->get('username');
+        $this->is_admin($this->username);
     }
     public function index()
     {
-       
+
+       if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
         
         $data = 
         [
@@ -34,6 +49,12 @@ class Admin extends BaseController{
     }
     public function aktivasi($username)
     {
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
         $data = [
             'isi' =>  $this->user_model->getPurchase($username),
             'val' => \Config\Services::validation()
@@ -43,6 +64,12 @@ class Admin extends BaseController{
     }
     public function proses()
     {
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
         if(!$this->validate([
             'langganan_id' => [
                 'rules' => 'required',
@@ -102,6 +129,12 @@ class Admin extends BaseController{
     }
     public function sendEmail()
     {
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
         if($this->cek_status())
         {
             $this->cek_status();
@@ -124,5 +157,83 @@ class Admin extends BaseController{
            session()->setFlashdata('pesan','Email berhasil dikirim.');
            return redirect()->to('/admin/index');
         }
+    }
+
+    public function profiluser() {
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        
+        }
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
+        $data = [
+            'profil' => $this->profile_model->getData(),
+
+        ];
+
+        return view('/admin/profiluser',$data);
+    }
+    public function interestuser(){
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
+        $data = [
+            'interest' => $this->interest_model->getData(),
+
+        ];
+
+        return view('/admin/interestuser',$data);
+    }
+    public function datauser(){
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
+        $data = [
+            'data' => $this->user_model->getUser(),
+
+        ];
+
+        return view('/admin/datauser',$data);
+    }
+    public function tambahadmin($username){
+        if($this->cek_status())
+        {
+            $this->cek_status();
+            return redirect()->to('/auth/login');
+        }
+        if($this->is_admin($this->username) ){
+            return redirect()->to('/auth/login');
+       } 
+       else {
+           session()->setFlashdata("admin","berhasil masuk sebagai Admin");
+       }
+       $data = [
+           'dataadmin' => $this->user_model->getWhere($username),
+       ];
+       //$dataadmin = $this->user_model->getWhere($username);
+       //dd($dataadmin);
+       return view('/admin/tambahadmin',$data);
     }
 }

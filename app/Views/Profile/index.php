@@ -1,8 +1,8 @@
 <?= $this->extend('wrapper/wrapper')   ; ?>
 <?= $this->section('content')   ; ?>
-    <div class="container mt-4">
-        <h5>Progres Profil </h5>
-    </div>
+    
+        <h1 class="mt-5" style="margin-left:60px;">Progres Profil </h1>
+    
     <div class="kartu putih">
         <div class="row">
             <div class="col-md-12">

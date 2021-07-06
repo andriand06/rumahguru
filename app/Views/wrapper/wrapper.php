@@ -102,15 +102,27 @@
                     let text = a.innerText;
                     console.log(a)
                 if (text.toLowerCase().indexOf(filter) > -1) {
-                    col[l].style.display = "";
+                    col[l].style.display = "";  
                 } else {
-                    col [l].style.display = "none";
+                    col[l].style.display = "none";
                 }
                 }
                 
             }
        
         }
+    }
+}
+
+function Navigation() {
+    const dropdownMenu = document.getElementsByClassName("dropdown-menu");
+    if(dropdownMenu.style.display == "none") {
+        dropdownMenu.style.display == "";
+        dropdownMenu.style.height = "550px";
+    }
+    else {
+        dropdownMenu.style.display == "none";
+        dropdownMenu.style.height = "0px";
     }
 }
     

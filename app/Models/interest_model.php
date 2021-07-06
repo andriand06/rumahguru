@@ -15,6 +15,9 @@ class interest_model extends ModeL
         
         return $this->table('interest')->insert($data);
     }
+    public function getData(){
+        return $this->findAll();
+    }
 
 }
 

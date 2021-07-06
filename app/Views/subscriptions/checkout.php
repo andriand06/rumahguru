@@ -1,7 +1,7 @@
 <?= $this->extend('wrapper/wrapper')   ; ?>
 <?= $this->section('content')   ; ?>
 
-<div class="container">
+<div class="breadcrumb">
     <p><a href="/subscriptions/purchase">Langganan</a> / <a href="/academy/list">Mulai Berlangganan</a> / Beli Paket Langganan</p>
 </div>
 <div class="kontainer putih">

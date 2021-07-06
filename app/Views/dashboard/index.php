@@ -12,7 +12,7 @@
             </div>
        <?php endif  ;?>
         </div>
-        <?php if($isactive === 0) : ?>
+        <?php if($isactive[0] === "0" ) : ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="kartu biru">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <?php endif; ?>
-        <?php if($isactive === 1) :?>
+        <?php if($isactive[0] === "1") :?>
         <div class="container"></div>
         <?php endif;?>
         <?php if(!isset($status)) : ?>
@@ -47,18 +47,11 @@
             </div>
         </div>
         <?php endif;?>
-        <?php if (isset($status)) : ?>
-            <div class="container"></div>
-        <?php endif;?>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Academy Dashboard</h3>
-                </div>
-            </div>
-       </div>
-
+        
+        
+    
        <div class="row">
+                <h1 class="ml-5">Academy Dashboard</h1>
            <div class="col-md-12">
                <div class="kartu putih">
                     <h5>Milestone Belajar Anda</h5>

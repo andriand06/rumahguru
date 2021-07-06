@@ -151,7 +151,8 @@ class Auth extends BaseController
                 'email' => $email,
                 'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
                 'konfirmasipassword' => password_hash($this->request->getPost('konfirmasipassword'),PASSWORD_DEFAULT),
-                'is_active' => 0,
+                'is_active' => "0",
+                'is_admin' => "0",
                 'datecreated' => new Time('now'),
                 
             ];
