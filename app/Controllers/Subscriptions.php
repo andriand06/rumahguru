@@ -27,18 +27,19 @@ class Subscriptions extends BaseController
             dd($this->cek_status());
             return redirect()->to('/auth/login');
         }
-        
+        $time = new Time('now');
         $username = $this->session->get('username');
         $email = $this->session->get('email');
+        $langganan = $this->request->getPost('langganan');
+        $langgananDays = ($this->langganan_model->getDays($langganan) !== null ? $this->langganan_model->getDays($langganan) : 1);
         $data = [
             'id' => '',
             'username' => $username,
             'email' => $email,
             'langganan' => $this->request->getPost('langganan'),
             'is_purchase' => 0,
-            
             'datestart' => new Time(),
-            'dateend' => '',
+            'dateend' => $time->addDays($langgananDays),
         ];
         return view('/subscriptions/purchase',$data);
     }
@@ -87,13 +88,14 @@ class Subscriptions extends BaseController
             return redirect()->to('/auth/login');
         }
         $time = new Time('now');
+       
         $username = $this->session->get('username');
         $data = 
         [
             'id' => '',
             'username' => $username,
             'trial' => 1,
-            'datestart' => time(),
+            'datestart' => new Time('now'),
             'dateend' => $time->addDays(15),
             
         ];

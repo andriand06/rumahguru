@@ -56,7 +56,7 @@
                <div class="kartu putih">
                     <h5>Milestone Belajar Anda</h5>
                     <div class="mt-3"></div>
-                    <?php if($trial == null or !$trial) : ?>
+                    <?php if($trial === null or !$trial) : ?>
                     <div class="card card-outline-success">
                         <div class="card-body p-5">
                             <div class="d-flex" style="justify-content: space-between;">
@@ -105,6 +105,9 @@
                             </div>
                         </div>
                     </div>
+                    <?php endif;?>
+                    <?php if($trial === 2) : ?>
+                        <div></div>
                     <?php endif;?>
                     <div class="card card-outline-success mt-5">
                         <div class="card-body p-5">

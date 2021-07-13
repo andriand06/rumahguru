@@ -65,9 +65,10 @@
                 <?= session()->getFlashdata('error')   ; ?>
             </div>
             <?php endif; ?>
+            <div class="mb-5">
             <form action="/subscriptions/upload/<?= $isi['id'];?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field()   ; ?>
-                <div class="mb-3">
+                <div class="mb-5">
                 <label for="bukti" class="form-label <?= ($val->hasError('bukti')) ? 'is-invalid' : '' ;?>">Upload Bukti Pembayaran</label>
                 <input type="file" id="bukti" class="form-control" name="bukti">
                 </div>
@@ -78,6 +79,7 @@
 
 
             </form>
+            </div>
         </div>
     </div>
     </div>

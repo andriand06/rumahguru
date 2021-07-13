@@ -38,11 +38,11 @@ class Admin extends BaseController{
        else {
            session()->setFlashdata("admin","berhasil masuk sebagai Admin");
        }
-        
+        $username = $this->session->get('username');
         $data = 
         [
             'bukti' => $this->subscriptions_model->findAll(),
-            'is_purchase' => $this->session->get('is_purchase'),
+            'is_purchase' => $this->purchase_model->getPurchase($username),
         ];
         
         return view('/admin/index',$data);
@@ -217,7 +217,7 @@ class Admin extends BaseController{
 
         return view('/admin/datauser',$data);
     }
-    public function tambahadmin($username){
+    public function tambahadmin($id){
         if($this->cek_status())
         {
             $this->cek_status();
@@ -229,11 +229,13 @@ class Admin extends BaseController{
        else {
            session()->setFlashdata("admin","berhasil masuk sebagai Admin");
        }
-       $data = [
-           'dataadmin' => $this->user_model->getWhere($username),
-       ];
-       //$dataadmin = $this->user_model->getWhere($username);
-       //dd($dataadmin);
-       return view('/admin/tambahadmin',$data);
+       $data = ['is_admin' => "1"];
+       $this->user_model->set($data);
+       $this->user_model->where('id',$id);
+       $this->user_model->update();
+        
+    
+    session()->setFlashdata('pesan','berhasil update tambah admin');
+    return redirect()->to('/admin/datauser');
     }
 }

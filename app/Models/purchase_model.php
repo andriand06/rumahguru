@@ -13,4 +13,7 @@ class purchase_model extends Model
     public function getPurchase($username) {
         return $this->where('username',$username)->findColumn('is_purchase');
     }
+    public function getDateEnd($username) {
+        return $this->where('username',$username)->findColumn('dateend');
+    }
 }

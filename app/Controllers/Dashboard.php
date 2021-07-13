@@ -3,18 +3,21 @@
 namespace App\Controllers;
 
 use App\Models\user_model;
+use App\Models\usertrial_model;
 use App\Models\profile_model;
 
 class dashboard extends BaseController
 {
     protected $session;
     protected $user_model;
+    protected $usertrial_model;
     protected $profile_model;
     public function __construct()
     {
         $this->session = \Config\Services::session();
         $this->email = \Config\Services::email();
         $this->user_model = new  user_model();
+        $this->usertrial_model = new  usertrial_model();
         $this->profile_model = new profile_model();
         $this->cek_status();
     }
@@ -26,17 +29,18 @@ class dashboard extends BaseController
             return redirect()->to('/auth/login');
         }
         $username = $this->session->get('username');
-        
-        $trial = $this->session->get('trial');
-        //dd($trial);
+        $dateend = ($this->usertrial_model->getDateEnd($username) !== null ? $this->usertrial_model->getDateEnd($username) : null );
+       $end = ($dateend === null ? null  : implode("",$dateend));
         $data = [
             'username' => $username,
-            'trial' => $trial,
+            'trial' => ($end === null ? null : (time() > strtotime($end) ? 2 : 1)),
             'isactive' => $this->user_model->getIsActive($username),
             //'isactive' => $this->session->get('is_active'),
             'status' => $this->profile_model->getStatus($username),
         ];
-
+        $trial = ($end === null ? null : (time() > strtotime($end) ? 2 : 1));
+        //dd($trial);
+       
         //$isactive = $this->user_model->getIsActive($username);
         //dd($isactive);
         return view('dashboard/index',$data);

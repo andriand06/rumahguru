@@ -60,7 +60,7 @@
             <!-- Main Content -->
             <div id="content">
 
-              <?php if($is_purchase === "0" || $is_purchase === null) : ?>
+              <?php if($is_purchase === 0 || $is_purchase === null && $trial === null) : ?>
                
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -122,7 +122,7 @@
                 <?php endif; ?>
                 
                 <!-- /.container-fluid -->
-                <?php if($is_purchase === "1") : ?>
+                <?php if($is_purchase === 1 || $trial === 1) : ?>
                 <?php if (isset($kelas)) : ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">

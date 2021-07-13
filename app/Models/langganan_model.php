@@ -15,4 +15,8 @@ class langganan_model extends Model
         return $this->where(['id' => $id])->first();
         
     }
+    public function getDays($id){
+        return $this->where('id',$id)->findColumn('days');
+    }
+
 }

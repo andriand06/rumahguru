@@ -10,9 +10,7 @@
         <p>Kelas academy tersedia bagi yang belum memiliki kemampuan
          (dasar) hingga yang sudah profesional.</p>
     </div>
-    <?php if (isset($is_purchase)) : ?>
-    <?php if($is_purchase === 1) : ?>
-    
+    <?php if ($is_purchase === 1 || $trial === 1) : ?>
     <div class="row">
         <div class="col-md-3">
             <form method="" action="">
@@ -81,8 +79,8 @@
         </div>  
     
     <?php endif ; ?>
-    <?php endif; ?>
-    <?php if(!isset($is_purchase) || $is_purchase === null) : ?>
+
+    <?php if(!isset($is_purchase) || $is_purchase === null && $trial === null) : ?>
         <div class="row">
         <div class="col-md-3">
             <form id="cari" action="">

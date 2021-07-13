@@ -40,7 +40,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php if ($is_purchase == 1) : ?>
+                            <?php if ($is_purchase === 1) : ?>
                                <?php foreach ($bukti as $b) : ?>
                                <tr>
                                     <td><?= $b['id']  ; ?></td>
@@ -52,7 +52,7 @@
                                </tr>
                                <?php endforeach;?>
                             <?php endif; ?>
-                            <?php if($is_purchase == 0) : ?>
+                            <?php if($is_purchase === 0 || $is_purchase === null) : ?>
                                 <?php foreach ($bukti as $b) : ?>
                                <tr>
                                     <td><?= $b['id']  ; ?></td>

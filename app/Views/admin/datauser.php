@@ -55,7 +55,7 @@
                         <td><?= $d['datecreated']  ; ?></td>
                         <td><?= $d['is_active']  ; ?></td>
                         <td><?= $d['is_admin']  ; ?></td>
-                        <td><a href="/admin/tambahadmin/<?= $d['username']   ; ?>" class="btn btn-primary">Tambah Admin</a></td>
+                        <td><a href="/admin/tambahadmin/<?= $d['id']   ; ?>" class="btn btn-primary">Tambah Admin</a></td>
                       
                         
                         

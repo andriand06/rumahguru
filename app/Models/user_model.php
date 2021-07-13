@@ -8,7 +8,7 @@ class user_model extends Model
 {
     protected $table = 'user';
     protected $useTimeStamps =true;
-    protected $allowedFields = ['id','namalengkap','username','email','password','konfirmasipassword','datecreated'];
+    protected $allowedFields = ['id','namalengkap','username','email','password','konfirmasipassword','datecreated','is_active','is_admin'];
 
     public function insertUser($data)
     {
@@ -61,6 +61,7 @@ class user_model extends Model
     {
         return $this->db->table('user_purchase')->insert($data);
     }
+   
   
 
 

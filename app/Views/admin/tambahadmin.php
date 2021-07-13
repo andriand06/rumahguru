@@ -25,7 +25,7 @@
                 <?= session()->getFlashdata('pesan')   ; ?>
             </div>
             <?php endif; ?>
-            <form action="" method="post">
+            <form action="/admin/update" method="post">
                 <?= csrf_field()   ; ?>
                    
                     <div class="form-group">
@@ -72,7 +72,7 @@
                     </div>
                     <div class="form-group">
                         
-                        <input type="text" name="is_admin"  class="form-control" placeholder="Is Admin" autocomplete="off"value="<?= $dataadmin['is_admin'] ; ?>" >
+                        <input type="text" name="is_admin"  class="form-control" placeholder="Is Admin" autocomplete="off" >
                         
                     </div>
                     
