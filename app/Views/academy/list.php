@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-3">
             <form method="" action="">
-            <div class="card"  style="width: 20rem; margin-left:40px">
+            <div class="card"  style="width:16rem; margin-left:40px">
                 <div class="card-body">
                         <h5>Filter</h5>
                         <input type="text" class="search" id="cari" placeholder="Cari Kelas" onkeyup="Cari()">
@@ -22,69 +22,26 @@
             </div>
             </form>
         </div>
+        <?php foreach($kelas as $k) : ?>
         <div class="col-md-3">
-            <div class="card" style="width: 20rem;">
+            <div class="card" style="width:16rem;">
                 <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title" ><a href="" id="title">Belajar Matematika</a></h5>
-                    <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
-                    <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
+                    <h5 class="card-title" ><a href="" id="title">Belajar <?= $k['nama'];?></a></h5>
+                    <p class="card-text">Pelajari <?= $k['nama'];?> dengan kurikulum terlengkap.</p></p>
+                    <a href="/academy/lesson/<?= $k['id'];?>" class="btn btn-info button">Belajar Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 20rem;">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/geology.png');?>" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title" ><a href="" id="title">Belajar Geografi</a></h5>
-                    <p class="card-text">Pelajari Geografi dengan kurikulum terlengkap.</p></p>
-                    <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <div class="card" style="width: 20rem; margin-left:40px">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/biology.png');?>" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title" ><a href="" id="title">Belajar Biologi</a></h5>
-                    <p class="card-text">Pelajari Biologi dengan kurikulum terlengkap.</p></p>
-                    <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="row mt-5" >
-            <div class="col-md-3">
-                <div class="card" style="width: 20rem; margin-left:40px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/astronomy.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" ><a href="" id="title">Belajar Astronomi</a></h5>
-                        <p class="card-text">Pelajari Astronomi dengan kurikulum terlengkap.</p></p>
-                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 20rem; margin-left:2px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/chemistry.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" ><a href="" id="title">Belajar Science</a></h5>
-                        <p class="card-text">Pelajari Science dengan kurikulum terlengkap.</p></p>
-                        <a href="/academy/matematika" class="btn btn-info button">Belajar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>  
+        <?php endforeach ; ?>
     
     <?php endif ; ?>
 
-    <?php if(!isset($is_purchase) || $is_purchase === null && $trial === null) : ?>
+    <?php if(!isset($is_purchase) || $is_purchase === null || $is_purchase === 0 && $trial === null) : ?>
         <div class="row">
         <div class="col-md-3">
             <form id="cari" action="">
-            <div class="card"  style="width: 20rem; margin-left:40px">
+            <div class="card"  style="width:16rem; margin-left:40px">
                 <div class="card-body">
                         <h5>Filter</h5>
                         <input type="text" class="search" id="cari" placeholder="Cari Kelas" onkeyup="Cari()">
@@ -92,61 +49,18 @@
             </div>
             </form>
         </div>
+        <?php foreach($kelas as $k) : ?>
         <div class="col-md-3">
-            <div class="card" style="width: 20rem; margin-left:25px;">
+            <div class="card" style="width:16rem;">
                 <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="" id="title">Belajar Matematika</a></h5>
-                    <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                    <h5 class="card-title" ><a href="" id="title">Daftar <?= $k['nama'];?></a></h5>
+                    <p class="card-text">Pelajari <?= $k['nama'];?> dengan kurikulum terlengkap.</p></p>
                     <a href="/subscriptions/purchase" class="btn btn-info button">Daftar Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card" style="width: 20rem; margin-left:25px">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/geology.png');?>" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title" ><a href="" id="title">Belajar Geografi</a></h5>
-                    <p class="card-text">Pelajari Geografi dengan kurikulum terlengkap.</p></p>
-                    <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-3">
-            <div class="card" style="width: 20rem; margin-left:25px">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/biology.png');?>" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title" ><a href="" id="title">Belajar Biologi</a></h5>
-                    <p class="card-text">Pelajari Biologi dengan kurikulum terlengkap.</p></p>
-                    <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
-                </div>
-            </div>
-        </div>
-    </div>
-        <div class="row mt-5" >
-            <div class="col-md-3">
-                <div class="card" style="width: 20rem; margin-left:40px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/astronomy.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" ><a href="" id="title">Belajar Astronomi</a></h5>
-                        <p class="card-text">Pelajari Astronomi dengan kurikulum terlengkap.</p></p>
-                        <a href="/subscription/purchase" class="btn btn-info button">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 20rem; margin-left:25px">
-                    <img class="card-img-top" src="<?= base_url('/assets/img/png/chemistry.png');?>" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" ><a href="" id="title">Belajar Science</a></h5>
-                        <p class="card-text">Pelajari Science dengan kurikulum terlengkap.</p></p>
-                        <a href="/academy/matematika" class="btn btn-info button">Daftar Sekarang</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>  
+        <?php endforeach ; ?>
     <?php endif;?>
 </div>
         

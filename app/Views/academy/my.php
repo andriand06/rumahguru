@@ -123,7 +123,7 @@
                 
                 <!-- /.container-fluid -->
                 <?php if($is_purchase === 1 || $trial === 1) : ?>
-                <?php if (isset($kelas)) : ?>
+                
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -139,20 +139,26 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                <th scope="col">Id</th>
                                 <th scope="col">Kelas</th>
+                                <th scope="col">Singkatan</th>
                                 <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php foreach($kelas as $i) : ?>
+                            <?php if (isset($kelas)) : ?>
+                           
                                 <tr>
-                                
-                                <td><?= $i   ; ?></td>
-                                <td><a href="/academy/<?= $i   ; ?>" class="btn btn-primary">Lanjut Belajar</a></td>
+                                <?php  //dd($kelas['singkatan']) ; ?>
+                                <td><?= $kelas['id']; ?></td>
+                                <td><?= $kelas['nama']  ; ?></td>
+                                <td><?= $kelas['singkatan']   ; ?></td>
+                                <td><a href="/academy/lesson/<?= $kelas['id']   ; ?>" class="btn btn-primary">Lanjut Belajar</a></td>
                                
                                 </tr>
                                
-                            <?php endforeach;?>
+                           
+                            <?php endif; ?>
                             </tbody>
                             </table>
                     </div>
@@ -184,7 +190,7 @@
 
                 </div>
                 <?php endif;?>
-                <?php endif; ?>
+               
             </div>
             <!-- End of Main Content -->
 

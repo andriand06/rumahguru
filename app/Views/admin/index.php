@@ -52,7 +52,7 @@
                                </tr>
                                <?php endforeach;?>
                             <?php endif; ?>
-                            <?php if($is_purchase === 0 || $is_purchase === null) : ?>
+                         
                                 <?php foreach ($bukti as $b) : ?>
                                <tr>
                                     <td><?= $b['id']  ; ?></td>
@@ -60,10 +60,10 @@
                                     <td><?= $b['email']  ; ?></td>
                                     <td><img src="<?= base_url('/upload/bukti/'.$b['bukti'].'')?>" alt="" class="img-thumbnail"></td>
                                     <td><a href="/admin/aktivasi/<?= $b['username']; ;?>" class="btn btn-primary" >Aktivasi</a></td>
-                                    <td><a href="/admin/sendEmail" class="btn btn-secondary">Kirim Email</a></td>
+                                    <td><a href="/admin/sendEmail/<?= $b['email'] ;?>" class="btn btn-secondary">Kirim Email</a></td>
                                </tr>
                                <?php endforeach;?>
-                               <?php endif;?>
+                             
                             </tbody>
                             </table>
                     </div>

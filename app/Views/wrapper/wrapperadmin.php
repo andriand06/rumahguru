@@ -70,6 +70,24 @@
         </div>
     </div>
 </li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFourth"
+        aria-expanded="true" aria-controls="collapseFourth">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Kelas</span>
+    </a>
+    <div id="collapseFourth" class="collapse" aria-labelledby="headingFourth" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Kelas</h6>
+            <a class="collapse-item active" href="/admin/aturkelas" selected>Atur Kelas</a>
+            <a class="collapse-item active" href="/admin/aturmateri" selected>Atur Materi Kelas</a>
+           
+           
+
+        </div>
+    </div>
+</li>
+
 
 <!-- Sidebar Toggler (Sidebar) -->
 <div class="text-center d-none d-md-inline">

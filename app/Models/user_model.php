@@ -40,9 +40,9 @@ class user_model extends Model
     public function getIsAdmin($username){
         return $this->where('username',$username)->findColumn('is_admin');
     }
-    public function getEmail($email)
+    public function getEmail($username)
     {
-        return $this->db->table('user')->getWhere(['email'=>$email])->getRowArray();
+        return $this->where('username',$username)->findColumn('email');
     }
     public function getToken($token)
     {

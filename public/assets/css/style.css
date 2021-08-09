@@ -190,9 +190,20 @@ input {
 .float-left {
     float: left;
 }
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .testimonywrapper {
     background-color: white;
     box-shadow: 5px 10px whitesmoke;
+}
+.testimonial{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1rem;
 }
 .headerWrapper {
     padding: 10px 10px;
@@ -253,15 +264,29 @@ a:hover
     background-color: white;
     color: #C9FFE5;
 }
+.has-shadow {
+    box-shadow: 0px 8px 15px rgba(#3252DF, 1.0)!important;
+}
+.img-wrapper {
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    margin-top: 3px;
+}
 footer
 {
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: white;
     color: black;
+    padding: 2rem 1rem;
     text-align: center;
+    border-top: 1.5px solid whitesmoke;
+}
+.nonelist {
+    list-style-type: none;
 }
 .disabled {
     pointer-events: none;
@@ -281,4 +306,9 @@ footer
     color: #333;
 }
 
+.swiper-container{
+    width: 80%;
+    height: 400px;
+    
+}
 

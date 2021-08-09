@@ -24,7 +24,7 @@
                                 <br class="d-lg-block d-md-block d-none">
                                 Cek email dan klik verifikasi.
                             </p>
-                            <form method="POST" action="/dashboard/sendEmail" accept-charset="UTF-8"><input name="_token" type="hidden">
+                            <form method="POST" action="/dashboard/sendEmail/<?= $email[0] ;?>" accept-charset="UTF-8"><input name="_token" type="hidden">
                             <button type="submit" class="btn btn-info">Kirim Ulang Email Verifikasi</button>
                             </form>
                     </div>
@@ -171,46 +171,19 @@
             <div class="row">   
                 <h3>Rekomendasi Academy</h3>
                 <p>Berikut adalah rekomendasi kelas sesuai dengan minat belajar Anda. Pelajari sekarang juga.</p>
-                <div class="col-md-3 mt-3">
+                <?php foreach($kelas as $k) : ?>
+                <div class="col-3 mt-3">
                     
-                    <div class="card" style="width: 20rem;">
+                    <div class="card" style="width:16rem;margin-right:30px;">
                         <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Matematika</a></h5>
-                            <p class="card-text">Pelajari Matematika dengan kurikulum terlengkap.</p></p>
+                            <h5 class="card-title"><a href="">Belajar <?= $k['nama']; ?></a></h5>
+                            <p class="card-text">Pelajari <?= $k['nama']; ?> dengan kurikulum terlengkap.</p></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mt-3">
-                    
-                    <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/geology.png');?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Geografi</a></h5>
-                            <p class="card-text">Pelajari Geografi dengan kurikulum terlengkap.</p></p>
-                        </div>
-                    </div>  
-                </div>
-                <div class="col-md-3 mt-3">
-                    
-                    <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/biology.png');?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Biologi</a></h5>
-                            <p class="card-text">Pelajari Biologi dengan kurikulum terlengkap.</p></p>
-                        </div>
-                    </div>  
-                </div>
-                <div class="col-md-3 mt-3">
-                    
-                    <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/astronomy.png');?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="">Belajar Astronomi</a></h5>
-                            <p class="card-text">Pelajari Astronomi dengan kurikulum terlengkap.</p></p>
-                        </div>
-                             
-                    </div>
+                <?php endforeach ; ?>
+                
                     <a href="/academy/list" class="btn btn-info mt-3 button">Lihat Semua Kelas</a>   
                 </div>
                 

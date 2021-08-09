@@ -7,6 +7,8 @@ use App\Models\subscriptions_model;
 use App\Models\user_model;
 use App\Models\profile_model;
 use App\Models\interest_model;
+use App\Models\kelas_model;
+use App\Models\materi_model;
 use phpDocumentor\Reflection\Types\This;
 
 class Admin extends BaseController{
@@ -15,6 +17,8 @@ class Admin extends BaseController{
     protected $purchase_model;
     protected $profile_model;
     protected $interest_model;
+    protected $kelas_model;
+    protected $materi_model;
     protected $session;
     public function __construct()
     {
@@ -23,6 +27,8 @@ class Admin extends BaseController{
         $this->purchase_model = new purchase_model();
         $this->profile_model = new profile_model();
         $this->interest_model = new interest_model();
+        $this->kelas_model = new kelas_model();
+        $this->materi_model = new materi_model();
         $this->session = \Config\Services::session();
         $this->session = \Config\Services::session();
         $this->email = \Config\Services::email();
@@ -127,7 +133,7 @@ class Admin extends BaseController{
             return view('/admin/aktivasi',$data);
         }
     }
-    public function sendEmail()
+    public function sendEmail($email)
     {
         if($this->is_admin($this->username) ){
             return redirect()->to('/auth/login');
@@ -141,10 +147,9 @@ class Admin extends BaseController{
             return redirect()->to('/auth/login');
         }
         $username = $this->session->get('username');
-       $emails = $this->session->get('email');
-      
+        
         $this->email->setFrom('andriandavinta@gmail.com','Rumah Guru');
-        $this->email->setTo($emails);
+        $this->email->setTo($email);
         
         $this->email->setSubject('Purchase Succesful');
         $this->email->setMessage('<h1>Rumah Guru</h1><p>Halo '.$username.'</p><p>Terima kasih telah membeli paket Langganan Rumah Guru.</p> <p>Bukti Pembayaran anda telah kami terima dan Akun anda sekarang dapat mengakses seluruh Kelas Rumah Guru!</p>
@@ -238,4 +243,115 @@ class Admin extends BaseController{
     session()->setFlashdata('pesan','berhasil update tambah admin');
     return redirect()->to('/admin/datauser');
     }
-}
+    public function aturkelas() {
+        $data = [
+            'kelas' => $this->kelas_model->getData()
+        ];
+        return view("/admin/aturkelas",$data);
+    }
+    public function tambahkelas(){
+        
+      
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+       
+        $data = [
+            'id' => $this->request->getVar('id'),
+            'nama' => $this->request->getVar('nama'),
+            'singkatan' => $this->request->getVar('singkatan'),
+        ];
+
+        //return redirect()->to("/admin/aturkelas");
+        return view("admin/tambahkelas",$data);
+    }
+    public function prosestambah(){
+        $data = [
+            'id' => $this->request->getVar('id'),
+            'nama' => $this->request->getVar('nama'),
+            'singkatan' => $this->request->getVar('singkatan'),
+        ];
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+        $this->kelas_model->insert($data);
+
+
+        return redirect()->to("/admin/aturkelas");
+    }
+    public function editkelas($id){
+        $data = [
+            'kelas' => $this->kelas_model->getDataFirst($id),
+        ];
+
+        return view("/admin/editkelas",$data);
+    }
+    public function updatekelas($id){
+        $data = [
+            'id' => $this->request->getPost('id'),
+            'nama' => $this->request->getPost('nama'),
+            'singkatan' => $this->request->getPost('singkatan'),
+        ];
+
+        $this->kelas_model->set($data);
+        $this->kelas_model->where('id',$id);
+        $this->kelas_model->update();
+        session()->setFlashdata('pesan','berhasil update data kelas');
+        return redirect()->to('/admin/aturkelas');
+    }
+    public function hapuskelas($id){
+        $this->kelas_model->where('id',$id)->delete();
+        session()->setFlashdata('pesan','berhasil hapus data kelas');
+        return redirect()->to('/admin/aturkelas');
+    }
+    public function aturmateri(){
+        $data= [
+            'kelas' => $this->kelas_model->getData(),
+            'materi' => $this->materi_model->getData(),
+        ];
+        return view("/admin/aturmateri",$data);
+    }
+    public function tambahmateri($id) {
+        $data = [
+            'kelas' => $this->kelas_model->getDataFirst($id),
+           
+        ];
+        return view("/admin/tambahmateri",$data);
+    }
+    public function prosestambahmateri($id){
+        $data = [
+            'idkelas' => $id,
+            'modul' => $this->request->getPost('modul'),
+            'submodul' => $this->request->getPost('submodul'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+
+        ];
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+        $this->materi_model->insert($data);
+
+
+        return redirect()->to("/admin/aturmateri");
+    }
+    public function editmateri($submodul){
+        $data = [
+            'materi' => $this->materi_model->getDataFirst($submodul),
+        ];
+
+        return view("/admin/editmateri",$data);
+    }
+    public function updatemateri($submodul){
+        $data = [
+            'modulkelas' => $this->request->getPost('idkelas'),
+            'modul' => $this->request->getPost('modul'),
+            'submodul' => $this->request->getPost('submodul'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+        ];
+
+        $this->materi_model->set($data);
+        $this->materi_model->where('submodul',$submodul);
+        $this->materi_model->update();
+        session()->setFlashdata('pesan','berhasil update data kelas');
+        return redirect()->to('/admin/aturmateri');
+    }
+    public function hapusmateri($modul){
+        $this->materi_model->where('submodul',$modul)->delete();
+        session()->setFlashdata('pesan','berhasil hapus data kelas');
+        return redirect()->to('/admin/aturmateri');
+    }
+ }

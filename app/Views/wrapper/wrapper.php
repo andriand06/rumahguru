@@ -22,8 +22,38 @@
 
 <?= $this->renderSection('content')   ; ?>
 <footer>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+                <div>
+                    Learn to be the best with the best Tutor Academy Here!
+                    <img src="/assets/img/testes.png" alt="">
+                </div>
+            </div>
+            <div class="col-4">
+                <h6 class="font-weight-bold">Follow us for more information.</h6>
+                <ul class="nonelist">
+                    <li><span><img class="img-wrapper" src="/assets/img/logofn.png" alt="Facebook"></span>Rumah Guru</li>
+                    <li><span><img class="img-wrapper" src="/assets/img/logoig.png" alt="Instagram"></span>Rumah Guru</li>
+                    
+                </ul>
+            </div>
+            <div class="col-4">
+                <h6 class="font-weight-bold">Contact Us</h6>
+                <ul class="nonelist">
+                    <li>RumahGuru@gmail.com</li>
+                    <li>021 - 2208 - 1123</li>
+                    <li>RumahGuru, Jambi, Indonesia</li>
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
   <p>&copy;Copyright Rumah Guru 2021</p>
 </footer>
+
+
 <script src="<?= base_url('/assets/js/bootstrap.bundle.min.js');?>"></script>
  <!-- Bootstrap core JavaScript-->
  <script src="<?= base_url('/bootstrap/sbadmin/vendor/jquery/jquery.min.js');?>"></script>
@@ -41,6 +71,8 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url('/bootstrap/sbadmin/js/demo/chart-area-demo.js');?>"></script>
     <script src="<?= base_url('/bootstrap/sbadmin/js/demo/chart-pie-demo.js');?>"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var toggleNode = document.getElementById("togglepassword");
     var passwordNode = document.getElementById("password");

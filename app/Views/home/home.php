@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="<?= base_url('/assets/css/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/style.css');?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/all.css');?>">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -84,44 +89,79 @@
                 <label for="">Sertifikat yang membuktikan pengetahuan fundamental serta keterampilan nyata yang diinginkan perusahaan global.</label>
             </div>
         </div>
-        <a href="/auth/registrasi" class="btn btn-primary mt-5" style="width:200px;margin:auto;">Belajar Sekarang</a>
+        <a href="/auth/registrasi" class="btn btn-primary has-shadow mt-5" style="width:200px;margin:auto;">Belajar Sekarang</a>
         <h1 class="mt-5">Testimoni Siswa</h1>
-          <div class="buttonContainer mt-5">
+          <!-- <div class="buttonContainer mt-5">
             <a href="" id="beforeButton" class="btn btn-primary">Before</a>
             <a href="" id="nextButton" class="btn btn-primary">Next</a>
-          </div>
-        <div class="testimonywrapper">
-
-        <div class="row mt-5">
-            <div class="col-6">
-            
-                  <div class="image-wrapper">
-                    <img style="width: 500px;height:400px" src="/assets/img/pp.jpg"alt="Profile">
-                      
-                  </div>
-            
-            </div>
-            <div class="col-6">
-              <div class="text-wrapper mt-5">
-                    <p class="font-weight-medium">"Lorem ipsum   sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, asperiores ullam provident quae culpa magni. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, labore! Repellendus, quia sint inventore, sapiente ratione nam minima aperiam, ullam soluta deleniti officiis! Maiores, aut. Fugit nostrum ipsam ab dignissimos? </p>
-                    <p class="font-weight-light mt-5">Andrian Davinta</p>
-                    <p class="font-weight-light">SMP Xaverius 1</p>
-                    <p class="font-weight-light">Lulusan Kelas Matematika</p>
-
-              </div>
-            </div>  
-          </div>
+          </div> -->
+        <!-- Slider main container -->
+    <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        ...
       </div>
-</div>  
-</div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
 
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+          
+        
+
+    </div>  
+</div>
+<footer>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4">
+                <div>
+                    Learn to be the best with the best Tutor Academy Here!
+                    <img src="/assets/img/testes.png" alt="">
+                </div>
+            </div>
+            <div class="col-4">
+                <h6 class="font-weight-bold">Follow us for more information.</h6>
+                <ul class="nonelist">
+                    <li><span><img class="img-wrapper" src="/assets/img/logofn.png" alt="Facebook"></span>Rumah Guru</li>
+                    <li><span><img class="img-wrapper" src="/assets/img/logoig.png" alt="Instagram"></span>Rumah Guru</li>
+                    
+                </ul>
+            </div>
+            <div class="col-4">
+                <h6 class="font-weight-bold">Contact Us</h6>
+                <ul class="nonelist">
+                    <li>RumahGuru@gmail.com</li>
+                    <li>021 - 2208 - 1123</li>
+                    <li>RumahGuru, Jambi, Indonesia</li>
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+  <p>&copy;Copyright Rumah Guru 2021</p>
+</footer>
 
 
 
 
 
 <script src="<?= base_url('/assets/js/bootstrap.bundle.min.js');?>"></script>
-<script>
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script type="module">
+import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
+
     var toggleNode = document.getElementById("togglepassword");
     var passwordNode = document.getElementById("password");
     function toggle()
@@ -134,6 +174,41 @@
         }
     }
     toggleNode.addEventListener('click',toggle)
+    // var swiper = new Swiper('.swiper-container',{
+    //   effect:'cube',
+    //   grabCursor:true,
+    //   cubeEffect:{
+    //     shadow:false,
+    //     sideShadows:false,
+    //     shadowOffset:20,
+    //     shadowScale:0.94,
+    //   },
+    //   navigation:{
+    //     nextEl:'.swiper-button-next',
+    //     prevEl:'.swiper-button-prev',
+    //   }
+    // })
+    const swiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
 </script>
 
 </body>

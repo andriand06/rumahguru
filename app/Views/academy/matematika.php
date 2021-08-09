@@ -174,7 +174,7 @@
                 </div>
             </div>
             <div class="mt-3 mb-5">
-                <a href="" class="btn btn-primary float-right">Lanjut</a>
+                <a href="/academy/lesson/1" class="btn btn-primary float-right">Lanjut</a>
                 <a href="" class="btn btn-primary float-left">Kembali</a>
             </div>
           </div>
