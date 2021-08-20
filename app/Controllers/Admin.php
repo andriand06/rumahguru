@@ -250,10 +250,6 @@ class Admin extends BaseController{
         return view("/admin/aturkelas",$data);
     }
     public function tambahkelas(){
-        
-      
-        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
-       
         $data = [
             'id' => $this->request->getVar('id'),
             'nama' => $this->request->getVar('nama'),
@@ -264,10 +260,15 @@ class Admin extends BaseController{
         return view("admin/tambahkelas",$data);
     }
     public function prosestambah(){
+        $gambar = $this->request->getFile('gambar');
+        $namagambar = $gambar->getRandomName();
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+        $gambar->move('upload',$namagambar);
         $data = [
             'id' => $this->request->getVar('id'),
             'nama' => $this->request->getVar('nama'),
             'singkatan' => $this->request->getVar('singkatan'),
+            'gambar' => $namagambar,
         ];
         session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
         $this->kelas_model->insert($data);
@@ -283,10 +284,15 @@ class Admin extends BaseController{
         return view("/admin/editkelas",$data);
     }
     public function updatekelas($id){
+        $gambar = $this->request->getFile('gambar');
+        $namagambar = $gambar->getRandomName();
+        session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
+        $gambar->move('upload',$namagambar);
         $data = [
             'id' => $this->request->getPost('id'),
             'nama' => $this->request->getPost('nama'),
             'singkatan' => $this->request->getPost('singkatan'),
+            'gambar' => $namagambar,
         ];
 
         $this->kelas_model->set($data);

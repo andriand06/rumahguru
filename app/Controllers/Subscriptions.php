@@ -5,8 +5,10 @@ namespace App\Controllers;
 use App\Models\kelas_model;
 use App\Models\langganan_model;
 use App\Models\profile_model;
+use App\Models\purchase_model;
 use App\Models\subscriptions_model;
 use App\Models\user_model;
+
 use CodeIgniter\I18n\Time;
 class Subscriptions extends BaseController
 {
@@ -16,6 +18,7 @@ class Subscriptions extends BaseController
     protected $subscriptions_model;
     protected $kelas_model;
     protected $profile_model;
+    protected $purchase_model;
     public function __construct()
     {
         $this->user_model = new user_model();
@@ -23,6 +26,7 @@ class Subscriptions extends BaseController
         $this->subscriptions_model = new subscriptions_model();
         $this->kelas_model = new kelas_model();
         $this->profile_model = new profile_model();
+        $this->purchase_model = new purchase_model();
         $this->session = \Config\Services::session();
         $this->cek_status();
     }
@@ -104,7 +108,8 @@ class Subscriptions extends BaseController
             'datestart' => new Time('now'),
             'dateend' => $time->addDays(15),
         ];
-
+        $dateendsubscription = ($this->purchase_model->getDateEnd($username) !== null ? $this->purchase_model->getDateEnd($username) : null);
+        $endsubscription = ($dateendsubscription === null ? null : implode("",$dateendsubscription));
         $this->user_model->insertuserTrial($data);
         $data = [
             'id' => '',
@@ -114,7 +119,9 @@ class Subscriptions extends BaseController
             'dateend' => $time->addDays(15),
             'isactive' => $this->user_model->getIsActive($username),
             'kelas' => $this->kelas_model->getData(),
-            'status' => $this->profile_model->getStatus($username)
+            'status' => $this->profile_model->getStatus($username),
+            'email' => $this->user_model->getEmail($username),
+            'is_purchase' => ($endsubscription === null ? null : ( time() > strtotime($endsubscription) ? 0 : 1))
         ];
         $this->session->set($data);
         //dd($data);

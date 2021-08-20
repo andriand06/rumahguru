@@ -175,7 +175,7 @@
                 <div class="col-3 mt-3">
                     
                     <div class="card" style="width:16rem;margin-right:30px;">
-                        <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                        <img class="card-img-top" src="<?= base_url('/upload/'.$k['gambar']);?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><a href="">Belajar <?= $k['nama']; ?></a></h5>
                             <p class="card-text">Pelajari <?= $k['nama']; ?> dengan kurikulum terlengkap.</p></p>

@@ -8,7 +8,7 @@ class kelas_model extends Model
 {
     protected $table = 'kelas';
     protected $useTimeStamps = true;
-    protected $allowedFields = ['id','id','singkatan'];
+    protected $allowedFields = ['id','nama','singkatan','gambar'];
     public function insertData($data)
     {
        return $this->db->table('kelas')->insert($data);

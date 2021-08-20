@@ -13,7 +13,7 @@
     <?php if (isset($trial)) : ?>
         <?php if($trial[0] === "1")   ; ?>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-sm-3">
             <form method="" action="">
             <div class="card"  style="width:16rem; margin-left:40px">
                 <div class="card-body">
@@ -39,8 +39,8 @@
         <?php if(isset($is_purchase) ) : ?>
             <?php if($is_purchase === 1)   : ?>
                 <div class="row">
-        <div class="col-md-3">
-            <form method="" action="">
+        <div class="col-sm-3">
+            <form method="" action=">
             <div class="card"  style="width:16rem; margin-left:40px">
                 <div class="card-body">
                         <h5>Filter</h5>
@@ -52,7 +52,7 @@
         <?php foreach($kelas as $k) : ?>
         <div class="col-md-3">
             <div class="card" style="width:16rem;">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                <img class="card-img-top" src="<?= base_url('/upload/'.$k['gambar']);?>" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" ><a href="" id="title">Belajar <?= $k['nama'];?></a></h5>
                     <p class="card-text">Pelajari <?= $k['nama'];?> dengan kurikulum terlengkap.</p></p>
@@ -65,10 +65,10 @@
             <?php endif   ; ?>
     
 
-    <?php if($is_purchase === null || $is_purchase === 0 && $trial === null ): ?>
+    <?php if($is_purchase === null && $trial === null || $is_purchase === 0 && $trial === null ): ?>
         <div class="row">
-        <div class="col-md-3">
-            <form id="cari" action="">
+        <div class="col-sm-3">
+            <form action="">
             <div class="card"  style="width:16rem; margin-left:40px">
                 <div class="card-body">
                         <h5>Filter</h5>
@@ -80,7 +80,7 @@
         <?php foreach($kelas as $k) : ?>
         <div class="col-md-3">
             <div class="card" style="width:16rem;">
-                <img class="card-img-top" src="<?= base_url('/assets/img/png/math.png');?>" alt="Card image cap">
+                <img class="card-img-top" src="<?= base_url('/upload/'.$k['gambar']);?>" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" ><a href="" id="title">Daftar <?= $k['nama'];?></a></h5>
                     <p class="card-text">Pelajari <?= $k['nama'];?> dengan kurikulum terlengkap.</p></p>

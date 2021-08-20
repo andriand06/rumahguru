@@ -22,6 +22,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Kelas</th>
                                 <th scope="col">Singkatan</th>
+                                <th scope="col">Gambar</th>
                                 <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -33,6 +34,7 @@
                                     <td><?= $k['id']  ; ?></td>
                                     <td><?= $k['nama']  ; ?></td>
                                     <td><?= $k['singkatan']  ; ?></td>
+                                    <td><?= $k['gambar']   ; ?></td>
                                     <td><a href="/admin/editkelas/<?= $k['id']; ;?>" class="btn btn-primary" >Edit</a></td>
                                     <td><a href="/admin/hapuskelas/<?= $k['id']; ;?>" onclick="confirm('apakah anda yakin ingin menghapus kelas?')" class="btn btn-danger" >Hapus</a></td>
                                     

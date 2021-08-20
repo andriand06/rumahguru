@@ -110,7 +110,7 @@
                     </video>
                     <?php  endif  ; ?>
                     <?php if($m['gambar'] !== '')   : ?>
-                        <img src="<?= base_url('/upload/'.$m['gambar'].'')?>" alt="" class="img-thumbnail">
+                        <img src="<?= base_url('/upload/'.$m['gambar'].'')?>" alt="" class="img-thumbnail"style="display:block;margin-top:2rem;">
                     <?php endif   ; ?>
                     <?php endif   ; ?>
                     <?php endforeach   ; ?>

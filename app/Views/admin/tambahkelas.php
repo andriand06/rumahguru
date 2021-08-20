@@ -16,7 +16,7 @@
             <div class="kontainer putih mt-3">
                 <h5>Tambah Kelas</h5>
                 <a href="/admin/aturkelas"  class="btn btn-primary">Kembali</a>
-                <form action="prosestambah" method="post">
+                <form action="prosestambah" method="post" enctype="multipart/form-data">
                     <?= csrf_field()   ; ?>
                     <div class="mb-3">
                         <label for="id" class="form-label">Id</label>
@@ -35,6 +35,13 @@
                      <div class="mb-3">
                         <label for="singkatan" class="form-label">Singkatan Kelas</label>
                         <input type="text"  class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="singkatan" name="singkatan" value="<?= old('singkatan'); ?>" >
+                        <div class="invalid-feedback" style="color:red">
+                            <?//= $val->getError('id')   ; ?>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="gambar" class="form-label">Ganbar Kelas</label>
+                        <input type="file"  class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="gambar" name="gambar" value="<?= old('gambar'); ?>" >
                         <div class="invalid-feedback" style="color:red">
                             <?//= $val->getError('id')   ; ?>
                         </div>

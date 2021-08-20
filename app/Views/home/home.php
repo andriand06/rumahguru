@@ -98,35 +98,29 @@
                             <h5>Andrian Davinta <img class="image" src="/assets/img/pp.jpg" alt="Profile"></h5>
                             <h6>SMP Xaverius 1</h6>
                             <span>Lulusan Kelas Matematika</span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, asperiores ullam provident quae culpa magni.</p>
+                            <p>Setelah saya menyelesaikan Kelas Matematika dari Rumah Guru, saya mendapatkan pengetahuan baru dani ilmu baru,metode ajar secara tertulis ini juga merupakan metode terbaik bagi saya dalam belajar.</p>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="headerWrapper">
-                            <h5>Andrian Davinta</h5>
-                            <img class="image" src="/assets/img/pp.jpg" alt="Profile">
+                            <h5>Vincent  <img class="image" src="/assets/img/pp.jpg" alt="Profile"></h5>
+                           
                             <h6>SMP Xaverius 1</h6>
-                            <span>Lulusan Kelas Matematika</span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, as  periores ullam provident quae culpa magni.</p>
+                            <span>Lulusan Kelas Sejarah</span>
+                            <p>Setelah saya menyelesaikan Kelas Sejarah dari Rumah Guru, saya mendapatkan pengetahuan baru dani ilmu baru,metode ajar secara tertulis ini juga merupakan metode terbaik bagi saya dalam belajar.</p>
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="headerWrapper">
-                            <h5>Andrian Davinta <img class="image" src="/assets/img/pp.jpg" alt="Profile"></h5>
-                            <h6>SMP Xaverius 1</h6>
-                            <span>Lulusan Kelas Matematika</span>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, asperiores ullam provident quae culpa magni.</p>
+                            <h5>Steven Sanjaya <img class="image" src="/assets/img/pp.jpg" alt="Profile"></h5>
+                            <h6>SMP Xaverius 2</h6>
+                            <span>Lulusan Kelas Bahasa Indonesia</span>
+                            <p>Setelah saya menyelesaikan Kelas Bahasa Indonesia dari Rumah Guru, saya mendapatkan pengetahuan baru dani ilmu baru,metode ajar secara tertulis ini juga merupakan metode terbaik bagi saya dalam belajar.</p>
                         </div>
                     </div>
                 </div>
             
             </div>
-          <div> Your Content </div>
-          <div> Your Content </div>
-          <div> Your Content </div>
-          <div> Your Content </div>
-          <div> Your Content </div>
-          <div> Your Content </div>
         </div>
     </div>  
 </div>
