@@ -8,7 +8,7 @@ class materi_model extends Model
 {
     protected $table = 'materi';
     protected $useTimeStamps = true;
-    protected $allowedFields = ['idkelas','modul','submodul','deskripsi'];
+    protected $allowedFields = ['idkelas','modul','submodul','deskripsi','video','gambar'];
     public function insertData($data)
     {
        return $this->db->table('materi')->insert($data);

@@ -6,6 +6,7 @@
 }
 body{
     background-color:#F8F8FF;
+
 }
 footer {
     position: fixed;
@@ -16,6 +17,7 @@ footer {
         float: left;
        width: 100%;
     }
+    
 }
 @media(min-width:768px)
 {
@@ -27,6 +29,7 @@ footer {
     {
         width: 250px;
     }
+    
 }
 @media(min-width:1024px){
     .interest
@@ -42,6 +45,46 @@ footer {
     .interest 
     {
         width: 450px;
+    }
+}
+@media screen and (max-width:768px) {
+    h4{
+        font-size: 5px;
+    }
+    footer{
+        font-size: 12px;
+    }
+    footer .container #RGIcon {
+        width: 150px;
+        height: 80px;
+    }
+    footer .container .img-wrapper {
+        width: 24px;
+        height: 24px;
+    }
+    .card {
+        font-size: 12px;
+        margin-right: 20px;
+       
+    }
+    .kartu.putih .row .col-3 {
+        width: 300px !important;
+        max-width: 100% !important;
+    }
+    .kartu.putih .row .col-3 .card {
+       display: block;
+       position:static;
+       
+    }
+    .kontainer.putih .row{
+        max-width: 80% !important;
+        margin: 2rem 2rem !important;
+    }
+    .kontainer.putih .row .col-md-3 {
+        margin: 1rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 nav{
@@ -264,8 +307,8 @@ a:hover
     background-color: white;
     color: #C9FFE5;
 }
-.has-shadow {
-    box-shadow: 0px 8px 15px rgba(#3252DF, 1.0)!important;
+.shadow {
+    box-shadow: 8px 8px 15px rgba(#3252DF, 1.0)!important;
 }
 .img-wrapper {
     width: 2rem;

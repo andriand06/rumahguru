@@ -36,21 +36,25 @@ class Academy extends BaseController
             return redirect()->to('/auth/login');
         }
         $username = $this->session->get('username');
+
+        //dd($username);
         $dateend = ($this->usertrial_model->getDateEnd($username) !== null ? $this->usertrial_model->getDateEnd($username) : null );
         $end = ($dateend === null ? null  : implode("",$dateend));
 
         $dateendsubscription = ($this->purchase_model->getDateEnd($username) !== null ? $this->purchase_model->getDateEnd($username) : null);
         $endsubscription = ($dateendsubscription === null ? null : implode("",$dateendsubscription));
+        $trial = $this->usertrial_model->getTrial($username);
+        //dd($trial);
         $data = [
             'username' => $username,
-            'trial' => ($end === null ? null : (time() > strtotime($end) ? 2 : 1)),
+            'trial' => ($trial ? $trial : null),
             'isactive' => $this->session->get('is_active'),
             'kelas' => $this->kelas_model->getData(),
             'is_purchase' =>  ($endsubscription === null ? null : ( time() > strtotime($endsubscription) ? 0 : 1)),
         ];
        
         $trial = ($end === null ? null : (time() > strtotime($end) ? 2 : 1));
-        $is_purchase = $this->purchase_model->getPurchase($username);
+        $is_purchase = ($endsubscription === null ? null : ( time() > strtotime($endsubscription) ? 0 : 1));
         //dd($trial);
         //dd($is_purchase);
         return view('/academy/list',$data);
@@ -68,9 +72,11 @@ class Academy extends BaseController
         $end = ($dateend === null ? null  : implode("",$dateend));
         $dateendsubscription = ($this->purchase_model->getDateEnd($username) !== null ? $this->purchase_model->getDateEnd($username) : null);
         $endsubscription = ($dateendsubscription === null ? null : implode("",$dateendsubscription));
+        $trial = $this->usertrial_model->getTrial($username);
+        //dd($this->session->get('kelas'));
         $data = [
             'username' => $username,
-            'trial' => ($end === null ? null : (time() > strtotime($end) ? 2 : 1)),
+            'trial' => ($trial ? $trial : "0"),
             'isactive' => $this->session->get('is_active'),
             'kelas' => $this->session->get('kelas'),
             'is_purchase' => ($endsubscription === null ? null : ( time() > strtotime($endsubscription) ? 0 : 1)),
@@ -143,6 +149,7 @@ class Academy extends BaseController
     }
     public function lesson($id){
         $kelas = $this->kelas_model->getDataFirst($id);
+        session()->set($kelas);
         $data['lesson'][] = array('title' => $this->kelas_model->getNama($id),'modul' => $this->materi_model->getModul($id),'submodul' => $this->materi_model->getSubModul($id),'deskripsi' => $this->materi_model->getDeskripsi($id));
         $title =$this->kelas_model->getNama($id);
         session()->set($data);

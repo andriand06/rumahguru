@@ -88,7 +88,7 @@
                     </div>
                 
                     <div class="kontainer putih mt-3">
-                        <a href="/admin/index"class="btn btn-secondary">Kembali ke Halaman Utama</a>
+                        <a href="/admin"class="btn btn-secondary">Kembali ke Halaman Utama</a>
                         <h5>Aktivasi</h5>
                         <?php if(session()->getFlashdata('pesan')) :?>
                         <div class="alert alert-success">

@@ -27,7 +27,7 @@
             <div class="col-4">
                 <div>
                     Learn to be the best with the best Tutor Academy Here!
-                    <img src="/assets/img/testes.png" alt="">
+                    <img src="/assets/img/testes.png"id="RGIcon" alt="">
                 </div>
             </div>
             <div class="col-4">

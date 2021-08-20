@@ -310,16 +310,34 @@ class Admin extends BaseController{
     public function tambahmateri($id) {
         $data = [
             'kelas' => $this->kelas_model->getDataFirst($id),
-           
         ];
         return view("/admin/tambahmateri",$data);
     }
     public function prosestambahmateri($id){
+        $file = $this->request->getFile('video');
+        //dd($file->getName());
+        if($file->getName() === "") {
+        $namafile = '';
+        }
+        else {
+            $namafile = $file->getRandomName();
+            $file->move('upload',$namafile);
+        }
+        $gambar = $this->request->getFile('gambar');
+        if($gambar->getName() === "") {
+            $namagambar = '';
+            }
+            else {
+                $namagambar = $gambar->getRandomName();
+                $gambar->move('upload',$namagambar);
+            }
         $data = [
             'idkelas' => $id,
             'modul' => $this->request->getPost('modul'),
             'submodul' => $this->request->getPost('submodul'),
             'deskripsi' => $this->request->getPost('deskripsi'),
+            'video' => $namafile,
+            'gambar' => $namagambar,
 
         ];
         session()->setFlashdata('pesan', 'Data Berhasil ditambahkan');
@@ -336,11 +354,30 @@ class Admin extends BaseController{
         return view("/admin/editmateri",$data);
     }
     public function updatemateri($submodul){
+        $file = $this->request->getFile('video');
+        //dd($file->getName());
+        if($file->getName() === "") {
+        $namafile = '';
+        }
+        else {
+            $namafile = $file->getRandomName();
+            $file->move('upload',$namafile);
+        }
+        $gambar = $this->request->getFile('gambar');
+        if($gambar->getName() === "") {
+            $namagambar = '';
+            }
+            else {
+                $namagambar = $gambar->getRandomName();
+                $gambar->move('upload',$namagambar);
+            }
         $data = [
             'modulkelas' => $this->request->getPost('idkelas'),
             'modul' => $this->request->getPost('modul'),
             'submodul' => $this->request->getPost('submodul'),
             'deskripsi' => $this->request->getPost('deskripsi'),
+            'file' => ($file ? $namafile : '') ,
+            'gambar' => $namagambar ,
         ];
 
         $this->materi_model->set($data);

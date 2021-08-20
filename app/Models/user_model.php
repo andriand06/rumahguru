@@ -40,6 +40,10 @@ class user_model extends Model
     public function getIsAdmin($username){
         return $this->where('username',$username)->findColumn('is_admin');
     }
+    public function getUsername($emails)
+    {
+        return $this->where('email',$emails)->findColumn('username');
+    }
     public function getEmail($username)
     {
         return $this->where('username',$username)->findColumn('email');

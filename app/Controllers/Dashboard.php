@@ -6,6 +6,7 @@ use App\Models\user_model;
 use App\Models\usertrial_model;
 use App\Models\profile_model;
 use App\Models\kelas_model;
+use App\Models\purchase_model;
 
 class dashboard extends BaseController
 {
@@ -14,6 +15,7 @@ class dashboard extends BaseController
     protected $usertrial_model;
     protected $profile_model;
     protected $kelas_model;
+    protected $purchase_model;
     public function __construct()
     {
         $this->session = \Config\Services::session();
@@ -22,6 +24,7 @@ class dashboard extends BaseController
         $this->usertrial_model = new  usertrial_model();
         $this->profile_model = new profile_model();
         $this->kelas_model = new kelas_model();
+        $this->purchase_model = new purchase_model();
         $this->cek_status();
     }
     public function index()
@@ -31,10 +34,14 @@ class dashboard extends BaseController
             $this->cek_status();
             return redirect()->to('/auth/login');
         }
+        
         $username = $this->session->get('username');
+        //dd($username);
         $email = $this->user_model->getEmail($username);
         $dateend = ($this->usertrial_model->getDateEnd($username) !== null ? $this->usertrial_model->getDateEnd($username) : null );
        $end = ($dateend === null ? null  : implode("",$dateend));
+       $dateendsubscription = ($this->purchase_model->getDateEnd($username) !== null ? $this->purchase_model->getDateEnd($username) : null);
+       $endsubscription = ($dateendsubscription === null ? null : implode("",$dateendsubscription));
         $data = [
             'username' => $username,
             'trial' => ($end === null ? null : (time() > strtotime($end) ? 2 : 1)),
@@ -43,6 +50,7 @@ class dashboard extends BaseController
             'isactive' => $this->user_model->getIsActive($username),
             //'isactive' => $this->session->get('is_active'),
             'status' => $this->profile_model->getStatus($username),
+            'is_purchase' => ($endsubscription === null ? null : ( time() > strtotime($endsubscription) ? 0 : 1)),
         ];
         $trial = ($end === null ? null : (time() > strtotime($end) ? 2 : 1));
         //dd($trial);

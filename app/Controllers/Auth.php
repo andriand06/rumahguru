@@ -173,10 +173,12 @@ class Auth extends BaseController
     }
     public function verify()
     {
-        $emails = $this->session->get('email');
-        $token = $this->session->get('token');
-        $user = $this->user_model->getEmail($emails);
         
+        $emails = $_GET['email'];
+        
+        $token = $this->session->get('token');
+        $user = $this->user_model->getUsername($emails);
+        //dd($user);
         if($user) 
         {
             $user_token = $this->user_model->getToken($token);
@@ -201,7 +203,7 @@ class Auth extends BaseController
     }
     public function logout()
     {
-        // unset($_SESSION['username']);
+        unset($_SESSION['username']);
         //unset($_SESSION['role_id']);
         $session = \config\Services::session();
         $session->remove('username');

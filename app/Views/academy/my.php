@@ -60,69 +60,9 @@
             <!-- Main Content -->
             <div id="content">
 
-              <?php if($is_purchase === 0 || $is_purchase === null && $trial === null) : ?>
-               
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><img src="<?= base_url('/assets/img/buku.png');?>" alt=""> Kelas</h1>
-                   
-                    </div>
-                    <p>Kelas</p>
-                    <div class="kontainer putih mt-3">
-                        <h5>Kelas yang sedang dipelajari</h5>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">Kelas</th>
-                                <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                
-                                <td>-</td>
-                                <td>-</td>
-                               
-                                </tr>
-                               
-                            
-                            </tbody>
-                            </table>
-                    </div>
-                    <div class="kontainer putih mt-5">
-                        <h5>Kelas yang sudah lulus</h5>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">Kelas</th>
-                                <th scope="col">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                
-                                <td>-</td>
-                                <td>-</td>
-                               
-                                </tr>
-                               
-                            
-                            </tbody>
-                            </table>
-                    </div>
-
-                   
-                   
-                   
-
-                </div>
-                <?php endif; ?>
-                
+             
                 <!-- /.container-fluid -->
-                <?php if($is_purchase === 1 || $trial === 1) : ?>
+                <?php if($is_purchase === 1 || $trial[0] === "1") : ?>
                 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -146,18 +86,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php if (isset($kelas)) : ?>
-                           
+                            <?php if (isset($kelas))  : ?>
+                                <?php foreach($kelas as $k)   : ?>
                                 <tr>
                                 <?php  //dd($kelas['singkatan']) ; ?>
-                                <td><?= $kelas['id']; ?></td>
-                                <td><?= $kelas['nama']  ; ?></td>
-                                <td><?= $kelas['singkatan']   ; ?></td>
-                                <td><a href="/academy/lesson/<?= $kelas['id']   ; ?>" class="btn btn-primary">Lanjut Belajar</a></td>
+                                <td><?= $k['id']; ?></td>
+                                <td><?= $k['nama']  ; ?></td>
+                                <td><?= $k['singkatan']   ; ?></td>
+                                <td><a href="/academy/lesson/<?= $k['id']   ; ?>" class="btn btn-primary">Lanjut Belajar</a></td>
                                
                                 </tr>
                                
-                           
+                                    <?php endforeach   ; ?>
                             <?php endif; ?>
                             </tbody>
                             </table>
@@ -189,7 +129,67 @@
                    
 
                 </div>
-                <?php endif;?>
+                <?php else : ?>
+               
+               <!-- Begin Page Content -->
+               <div class="container-fluid">
+
+                   <!-- Page Heading -->
+                   <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                       <h1 class="h3 mb-0 text-gray-800"><img src="<?= base_url('/assets/img/buku.png');?>" alt=""> Kelas</h1>
+                  
+                   </div>
+                   <p>Kelas</p>
+                   <div class="kontainer putih mt-3">
+                       <h5>Kelas yang sedang dipelajari</h5>
+                       <table class="table">
+                           <thead>
+                               <tr>
+                               <th scope="col">Kelas</th>
+                               <th scope="col">Aksi</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                               
+                               <td>-</td>
+                               <td>-</td>
+                              
+                               </tr>
+                              
+                           
+                           </tbody>
+                           </table>
+                   </div>
+                   <div class="kontainer putih mt-5">
+                       <h5>Kelas yang sudah lulus</h5>
+                       <table class="table">
+                           <thead>
+                               <tr>
+                               <th scope="col">Kelas</th>
+                               <th scope="col">Aksi</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                               
+                               <td>-</td>
+                               <td>-</td>
+                              
+                               </tr>
+                              
+                           
+                           </tbody>
+                           </table>
+                   </div>
+
+                  
+                  
+                  
+
+               </div>
+               <?php endif; ?>
+            
                
             </div>
             <!-- End of Main Content -->

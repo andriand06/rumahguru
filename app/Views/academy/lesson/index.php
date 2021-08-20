@@ -86,17 +86,32 @@
           
                 <div class="row">
                     <div class="mt-3">
-                        <h5>
-                        <?= $lesson['modul'][0]; ?>
-                        </h5>
-                        <!-- <?php //for($i=0;$i<count($lessons['modul']);$i++) : ?>
+                       
+                        <!-- <?php //for($i=0;$i<count($lessons['modul']);$i++) : 
+
+                                use function PHPUnit\Framework\once;
+
+?>
                         <h6><?//= $lessons['submodul'][$i]   ; ?></h6>
                         <p class="mt-3"><?//= $lessons['deskripsi'][$i]   ; ?></p>
                         <?//php endfor ;?> -->
                         <?php foreach($materi as $m)   : ?>
+                            
+                        
+                        
+                       
                     <?php if($id === $m['idkelas'])   : ?>
+                        
                     <p><?= $m['submodul']   ; ?></p>
                     <p><?= $m['deskripsi']   ; ?></p>
+                    <?php if($m['video'] !== '')   : ?>
+                    <video width="480" height="360" controls>
+                        <source src=<?= base_url('/upload/'.$m['video'].'')  ; ?> type="video/mp4">
+                    </video>
+                    <?php  endif  ; ?>
+                    <?php if($m['gambar'] !== '')   : ?>
+                        <img src="<?= base_url('/upload/'.$m['gambar'].'')?>" alt="" class="img-thumbnail">
+                    <?php endif   ; ?>
                     <?php endif   ; ?>
                     <?php endforeach   ; ?>
                     </div>

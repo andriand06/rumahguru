@@ -44,13 +44,16 @@
             </div>
             <div class="kontainer putih mt-3">
                 <h5>Daftar Materi</h5>
-                <table class="table tablescroll">
+                <div class="tablescroll">
+                <table class="table ">
                             <thead>
                                 <tr>
                                 <th scope="col">Id Kelas</th>
                                 <th scope="col">Modul</th>
                                 <th scope="col">Sub Modul</th>
                                 <th scope="col">Deskripsi</th>
+                                <th scope="col">Video</th>
+                                <th scope="col">Gambar</th>
                                 <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -63,6 +66,8 @@
                                     <td><?= $m['modul']  ; ?></td>
                                     <td><?= $m['submodul']  ; ?></td>
                                     <td><?= $m['deskripsi']  ; ?></td>
+                                    <td><?= $m['video']   ; ?></td>
+                                    <td><?= $m['gambar']   ; ?></td>
                                     <td><a href="/admin/editmateri/<?= $m['submodul']; ;?>" class="btn btn-primary" >Edit Materi Kelas</a></td>
                                     <td><a href="/admin/hapusmateri/<?= $m['submodul']; ;?>" class="btn btn-primary" >Hapus Materi Kelas</a></td>
                                     
@@ -72,6 +77,7 @@
                               
                             </tbody>
                             </table>
+                            </div>
                     
             </div>
         </div>

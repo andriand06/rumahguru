@@ -16,7 +16,7 @@
             <div class="kontainer putih mt-3">
                 <h5>Edit Materi</h5>
                 <a href="/admin/aturmateri"  class="btn btn-primary">Kembali</a>
-                <form action="/admin/updatemateri/<?= $materi['submodul']; ?>" method="post">
+                <form action="/admin/updatemateri/<?= $materi['submodul']; ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field()   ; ?>
                     <div class="mb-3">
                         <label for="idkelas" class="form-label">Id Kelas</label>
@@ -42,6 +42,20 @@
                      <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
                         <input type="text" cols="50" rows="8" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="deskripsi" name="deskripsi" value="<?= $materi['deskripsi']; ?>" >
+                        <div class="invalid-feedback" style="color:red">
+                            <?//= $val->getError('id')   ; ?>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="video" class="form-label">Video</label>
+                        <input type="file" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="video" name="video"></input>
+                        <div class="invalid-feedback" style="color:red">
+                            <?//= $val->getError('id')   ; ?>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="gambar" class="form-label">Gambar</label>
+                        <input type="file" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="gambar" name="gambar"></input>
                         <div class="invalid-feedback" style="color:red">
                             <?//= $val->getError('id')   ; ?>
                         </div>

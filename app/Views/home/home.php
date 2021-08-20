@@ -8,11 +8,8 @@
     <link rel="stylesheet" href="<?= base_url('/assets/css/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/style.css');?>">
     <link rel="stylesheet" href="<?= base_url('/assets/css/all.css');?>">
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -80,8 +77,8 @@
             </div>
             <div class="col-sm-3">
                 <img src="<?= base_url('/assets/img/imac.png');?>" alt="laptop">
-                <h4>Lesson Review dari developer expert</h4>
-                <label for="">Validasi pelajaran Anda melalui 1-on-1 Professional Lesson Review yang diberikan langsung oleh Pengajar Expert.</label>
+                <h4>Lesson Review dari expert</h4>
+                <label for="">Validasi pelajaran Anda melalui 1-on-1 Professional Lesson Review yang diberikan langsung oleh Expert.</label>
             </div>
             <div class="col-sm-3">
                 <img src="<?= base_url('/assets/img/orang.png');?>" alt="laptop">
@@ -89,35 +86,48 @@
                 <label for="">Sertifikat yang membuktikan pengetahuan fundamental serta keterampilan nyata yang diinginkan perusahaan global.</label>
             </div>
         </div>
-        <a href="/auth/registrasi" class="btn btn-primary has-shadow mt-5" style="width:200px;margin:auto;">Belajar Sekarang</a>
+        <a href="/auth/registrasi" class="btn btn-primary shadow mt-5" style="width:200px;margin:auto;">Belajar Sekarang</a>
         <h1 class="mt-5">Testimoni Siswa</h1>
-          <!-- <div class="buttonContainer mt-5">
-            <a href="" id="beforeButton" class="btn btn-primary">Before</a>
-            <a href="" id="nextButton" class="btn btn-primary">Next</a>
-          </div> -->
-        <!-- Slider main container -->
-    <div class="swiper-container">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-      </div>
-      <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
-    </div>
-          
-        
-
+        <div class="owl-carousel">
+        <div class="testimonial mt-3 mx-5">
+                <h5>Apa kata lulusan Rumah Guru?</h5>
+                <p>Sudah banyak siswa yang sukses belajar di Rumah Guru. Mau tau pendapat dari sisi mereka? Ini adalah testimoni asli mereka. Mau tahu lebih banyak?</p>
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <div class="headerWrapper">
+                            <h5>Andrian Davinta <img class="image" src="/assets/img/pp.jpg" alt="Profile"></h5>
+                            <h6>SMP Xaverius 1</h6>
+                            <span>Lulusan Kelas Matematika</span>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, asperiores ullam provident quae culpa magni.</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="headerWrapper">
+                            <h5>Andrian Davinta</h5>
+                            <img class="image" src="/assets/img/pp.jpg" alt="Profile">
+                            <h6>SMP Xaverius 1</h6>
+                            <span>Lulusan Kelas Matematika</span>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, as  periores ullam provident quae culpa magni.</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="headerWrapper">
+                            <h5>Andrian Davinta <img class="image" src="/assets/img/pp.jpg" alt="Profile"></h5>
+                            <h6>SMP Xaverius 1</h6>
+                            <span>Lulusan Kelas Matematika</span>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id fuga aut recusandae perferendis iste dolores nobis laborum non ad ab facilis fugit voluptates inventore, asperiores ullam provident quae culpa magni.</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+          <div> Your Content </div>
+          <div> Your Content </div>
+          <div> Your Content </div>
+          <div> Your Content </div>
+          <div> Your Content </div>
+          <div> Your Content </div>
+        </div>
     </div>  
 </div>
 <footer>
@@ -126,7 +136,7 @@
             <div class="col-4">
                 <div>
                     Learn to be the best with the best Tutor Academy Here!
-                    <img src="/assets/img/testes.png" alt="">
+                    <img src="/assets/img/testes.png" id="RGIcon" alt="">
                 </div>
             </div>
             <div class="col-4">
@@ -157,11 +167,15 @@
 
 
 <script src="<?= base_url('/assets/js/bootstrap.bundle.min.js');?>"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script type="module">
-import Swiper from 'https://unpkg.com/swiper/swiper-bundle.esm.browser.min.js'
-
+<script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop:true,
+        nav:true,
+      });
+    });
     var toggleNode = document.getElementById("togglepassword");
     var passwordNode = document.getElementById("password");
     function toggle()
