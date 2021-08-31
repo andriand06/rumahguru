@@ -115,6 +115,9 @@ nav{
     min-width: 600px;
    
 }
+.center{
+    margin: 1rem 2rem;
+}
 
 #auth {
     margin-right: 10px;

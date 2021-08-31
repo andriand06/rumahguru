@@ -382,7 +382,7 @@ class Admin extends BaseController{
             'modul' => $this->request->getPost('modul'),
             'submodul' => $this->request->getPost('submodul'),
             'deskripsi' => $this->request->getPost('deskripsi'),
-            'file' => ($file ? $namafile : '') ,
+            'video' => $namafile,
             'gambar' => $namagambar ,
         ];
 

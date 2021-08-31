@@ -34,7 +34,7 @@
                      </div>
                      <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea type="text" cols="50" rows="8"  class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="deskripsi" name="deskripsi" value="<?= old('deskripsi'); ?>"></textarea>
+                        <textarea cols="50" rows="8"  class="ckeditor form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" name="deskripsi"><?= old('deskripsi'); ?></textarea>
                         <div class="invalid-feedback" style="color:red">
                             <?//= $val->getError('id')   ; ?>
                         </div>

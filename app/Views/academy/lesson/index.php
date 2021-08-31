@@ -105,12 +105,12 @@
                     <p><?= $m['submodul']   ; ?></p>
                     <p><?= $m['deskripsi']   ; ?></p>
                     <?php if($m['video'] !== '')   : ?>
-                    <video width="480" height="360" controls>
+                    <video width="480" height="360" controls class="center">
                         <source src=<?= base_url('/upload/'.$m['video'].'')  ; ?> type="video/mp4">
                     </video>
                     <?php  endif  ; ?>
                     <?php if($m['gambar'] !== '')   : ?>
-                        <img src="<?= base_url('/upload/'.$m['gambar'].'')?>" alt="" class="img-thumbnail"style="display:block;margin-top:2rem;">
+                        <img src="<?= base_url('/upload/'.$m['gambar'].'')?>" alt="" class="img-thumbnail"style="display:block;margin-top:2rem;margin-bottom: 1.5rem;">
                     <?php endif   ; ?>
                     <?php endif   ; ?>
                     <?php endforeach   ; ?>

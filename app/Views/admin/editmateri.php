@@ -41,21 +41,21 @@
                      </div>
                      <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <input type="text" cols="50" rows="8" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="deskripsi" name="deskripsi" value="<?= $materi['deskripsi']; ?>" >
+                        <textarea cols="50" rows="8" class="ckeditor form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" name="deskripsi" ><?= $materi['deskripsi']; ?> </textarea>
                         <div class="invalid-feedback" style="color:red">
                             <?//= $val->getError('id')   ; ?>
                         </div>
                      </div>
                      <div class="mb-3">
                         <label for="video" class="form-label">Video</label>
-                        <input type="file" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="video" name="video"></input>
+                        <input type="file" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="video" name="video" value="<?= $materi['video'] ?>"></input>
                         <div class="invalid-feedback" style="color:red">
                             <?//= $val->getError('id')   ; ?>
                         </div>
                      </div>
                      <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar</label>
-                        <input type="file" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="gambar" name="gambar"></input>
+                        <input type="file" class="form-control <?//= ($val->hasError('id')) ? 'is-invalid' : '' ;?>" id="gambar" name="gambar" value="<?= $materi['gambar'] ?>"></input>
                         <div class="invalid-feedback" style="color:red">
                             <?//= $val->getError('id')   ; ?>
                         </div>
